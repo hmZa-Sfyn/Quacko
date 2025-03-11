@@ -42,26 +42,51 @@ Whether you’re a curious beginner or an adventurous developer, Quacko offers a
 
 Complete language tutorial can be found in [docs](docs)
 
-## Features
+🌟 Key Features:
 
-* Class with support for property, indexer & operator overloading
-* await/async for asynchronous programming
-* Builtin support for linq
-* Builtin support for datetime literal
-* First class function
-* function with Variadic parameters and default values
-* function with multiple return values
-* int, uint, float, bool, array, tuple, hash(all support json marshal & unmarshal, all can be extended)
-* try-catch-finally exception handling
-* Optional Type support(Java 8 like)
-* using statment(C# like)
-* Elixir like pipe operator
-* Using method of Go Package(RegisterFunctions and RegisterVars)
-* Syntax-highlight REPL
-* Doc-generation tool `mdoc`
-* Integrated services processing
-* Simple debugger
-* Simple Macro processing
+Class System: Support for properties, indexers, and operator overloading.
+
+Asynchronous Programming: Built-in async/await for handling asynchronous tasks.
+
+LINQ Integration: Seamless query capabilities, inspired by C#.
+
+Datetime Literals: Directly work with dates and times.
+
+First-Class Functions: Treat functions as first-class citizens.
+
+Flexible Functions: Support for variadic parameters, default values, and multiple return values.
+
+Rich Data Types: Native support for int, uint, float, bool, array, tuple, and hash (all JSON-marshalable and extendable).
+
+Exception Handling: Robust try-catch-finally blocks.
+
+Optional Types: Java 8-like optional types.
+
+Using Statement: C#-style using statement for resource management.
+
+Pipe Operator: Elixir-like pipeline operator for cleaner function chaining.
+
+Go Package Integration: Register Go functions and variables directly in Quacko.
+
+🛠 Developer Tools:
+
+Syntax-Highlighting REPL: A live console with real-time syntax highlighting.
+
+Documentation Generator (mdoc): Convert Quacko source code into beautiful HTML documentation.
+
+Debugger: A simple but effective debugging tool.
+
+Macro Processing: Basic macros to streamline repetitive tasks.
+
+Integrated Services: Built-in capabilities for service-based architecture.
+
+🌐 Web & Beyond:
+
+Browser Execution: Run Quacko scripts directly in the browser.
+
+Fast Prototyping: Use Quacko for rapid scripting and prototyping with a minimal learning curve.
+
+
 
 ## Example1(Linq)
 
