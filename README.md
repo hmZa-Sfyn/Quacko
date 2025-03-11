@@ -26,15 +26,15 @@ Versatile Programming Paradigms: Quacko supports standard control flow, function
 
 Go Module Integration: Easily import and use Go modules directly within your Quacko code, extending functionality effortlessly.
 
-Built-in Documentation Generator (mdoc): Generate clean, navigable HTML documentation straight from your Quacko source files.
+- Built-in Documentation Generator (mdoc): Generate clean, navigable HTML documentation straight from your Quacko source files.
 
-Lightweight Debugger: Experiment and troubleshoot your code with a simple yet effective built-in debugger.
+- Lightweight Debugger: Experiment and troubleshoot your code with a simple yet effective built-in debugger.
 
-Interactive REPL with Syntax Highlighting: Test ideas on the fly with a responsive REPL, complete with real-time syntax highlighting for an enhanced coding experience.
+- Interactive REPL with Syntax Highlighting: Test ideas on the fly with a responsive REPL, complete with real-time syntax highlighting for an enhanced coding experience.
 
-Web Execution: Run most Quacko scripts directly in a web browser, opening up endless possibilities for online demos, tutorials, and interactive code sharing.
+- Web Execution: Run most Quacko scripts directly in a web browser, opening up endless possibilities for online demos, tutorials, and interactive code sharing.
 
-As a bonus, Quacko is self-hosting — a simple programming language has already been implemented using Quacko itself!
+*As a bonus, Quacko is self-hosting — a simple programming language has already been implemented using Quacko itself!*
 
 Whether you’re a curious beginner or an adventurous developer, Quacko offers a unique playground to explore, build, and have fun with code.
 
