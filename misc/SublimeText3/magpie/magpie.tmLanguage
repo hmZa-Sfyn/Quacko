@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>comment</key>
-	<string>Magpie language</string>
+	<string>Quacko language</string>
 	<key>fileTypes</key>
 	<array>
 		<string>magpie</string>

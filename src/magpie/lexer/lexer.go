@@ -663,10 +663,10 @@ func (l *Lexer) readIdentifier() token.Token {
 		}
 	}
 
-	// Why '?' : Because Magpie support Optional, so it should be good for
+	// Why '?' : Because Quacko support Optional, so it should be good for
 	// a Optional type to denote it meaning with a '?' like 'isEmpty?'
 
-	// Why '$' : Because Magpie support extend built-in types with 'integer', 'float', etc.
+	// Why '$' : Because Quacko support extend built-in types with 'integer', 'float', etc.
 	// For example, you could extend 'integer' type with 'integer$funcname(xxx)'
 	for isLetter(l.ch) || isDigit(l.ch) || l.ch == '?' || l.ch == '$' {
 		l.readNext()

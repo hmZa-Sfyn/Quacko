@@ -579,7 +579,7 @@ func parseObject(dec *json.Decoder) (Object, error) {
 		}
 	default:
 		var ret Object
-		// Check the type of the token, and convert it to magpie object
+		// Check the type of the token, and convert it to Quacko object
 		switch tok.(type) {
 		case float64:
 			ret = NewFloat(tok.(float64))

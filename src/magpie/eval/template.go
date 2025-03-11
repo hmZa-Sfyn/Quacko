@@ -709,14 +709,14 @@ func (t *TemplateObj) Funcs(line string, scope *Scope, args ...Object) Object {
 			s := NewScope(scope, nil)
 			//put all the arguments into scope for later 'Eval'
 			for idx, arg := range args {
-				o, _ := unmarshalJsonObject(arg) //convert go object to magpie object
+				o, _ := unmarshalJsonObject(arg) //convert go object to Quacko object
 				s.Set(innerFn.Literal.Parameters[idx].(*ast.Identifier).Value, o)
 			}
 			ret := Eval(innerFn.Literal.Body, s)
 			if obj, ok := ret.(*ReturnValue); ok {
 				ret = obj.Value
 			}
-			return object2RawValue(ret) //convert magpie object back to go object
+			return object2RawValue(ret) //convert Quacko object back to go object
 		}
 	}
 

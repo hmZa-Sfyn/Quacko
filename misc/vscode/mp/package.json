@@ -1,7 +1,7 @@
 {
     "name": "mp",
     "displayName": "magpie",
-    "description": "Magpie language",
+    "description": "Quacko language",
     "version": "0.0.1",
     "publisher": "magpie",
     "engines": {

@@ -66,7 +66,7 @@ hi def link     magpieComment           Comment
 hi def link     magpieTodo              Todo
 
 
-" magpie escapes
+" Quacko escapes
 syn match       magpieEscapeOctal       display contained "\\[0-7]\{3}"
 syn match       magpieEscapeC           display contained +\\[abfnrtv\\'"]+
 syn match       magpieEscapeX           display contained "\\x\x\{2}"

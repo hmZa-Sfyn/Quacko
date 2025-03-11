@@ -108,7 +108,7 @@ func genDoc(filename string, cfg doc.Config) {
 
 func main() {
 	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "Usage: %s [magpie file]\n", os.Args[0])
+		fmt.Fprintf(os.Stderr, "Usage: %s [Quacko file]\n", os.Args[0])
 		flag.PrintDefaults()
 		os.Exit(0)
 	}

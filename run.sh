@@ -6,7 +6,7 @@ export GO111MODULE=off
 
 # format each go file
 echo "Formatting go file..."
-for file in `find ./src/magpie -name "*.go"`; do
+for file in `find ./src/Quacko -name "*.go"`; do
 	echo "    `basename $file`"
 	go fmt $file > /dev/null
 done

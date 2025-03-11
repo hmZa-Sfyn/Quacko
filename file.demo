@@ -44,7 +44,7 @@ func main() {
 	//We must reset `os.Args`, or the `flag` module will not functioning correctly
 	os.Args = os.Args[1:]
 	if len(args) == 0 {
-		fmt.Println("Magpie programming language REPL\n")
+		fmt.Println("Quacko programming language REPL\n")
 		repl.Start(os.Stdout, true)
 	} else {
 		runProgram(args[0])

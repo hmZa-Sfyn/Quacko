@@ -222,14 +222,14 @@ func main() {
 	//We must reset `os.Args`, or the `flag` module will not functioning correctly
 	os.Args = os.Args[1:]
 	if len(args) == 0 {
-		fmt.Println("Magpie programming language REPL\n")
+		fmt.Println("Quacko programming language REPL\n")
 		repl.Start(os.Stdout, true)
 	} else {
 		if len(args) == 2 {
 			if args[0] == "-d" || args[0] == "--debug" { // debug
 				runProgram(true, args[1])
 			} else {
-				fmt.Println("Usage: magpie -d file.mp")
+				fmt.Println("Usage: Quacko -d file.mp")
 				os.Exit(1)
 			}
 		} else {

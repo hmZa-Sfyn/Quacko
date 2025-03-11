@@ -1,6 +1,6 @@
 # Syntax Support for Sublime Text 3
 
-This file provides Syntax highlighting support for the magpie Language in `Sublime Text 3`
+This file provides Syntax highlighting support for the Quacko Language in `Sublime Text 3`
 
 ## Sublime Text 3 screenshot
 

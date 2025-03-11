@@ -1,4 +1,4 @@
-// Package doc extracts source code documentation from a Magpie AST.
+// Package doc extracts source code documentation from a Quacko AST.
 package doc
 
 import (
@@ -44,7 +44,7 @@ type Config struct {
 	CssContents    string //User supplied css file contents for styling generated html file
 }
 
-// File is the documentation for an entire magpie file.
+// File is the documentation for an entire Quacko file.
 type File struct {
 	Name    string //FileName
 	Classes []*Classes

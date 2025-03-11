@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="magpie language logo" src="https://github.com/haifenghuang/magpie/blob/master/magpie.png?raw=true" width="310">
+    <img alt="Quacko language logo" src="https://github.com/haifenghuang/magpie/blob/master/magpie.png?raw=true" width="310">
 </p>
 
 # Magpie程序语言

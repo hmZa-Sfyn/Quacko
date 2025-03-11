@@ -1,6 +1,6 @@
-# Syntax Support for magpie lanuage in Notepad++
+# Syntax Support for Quacko lanuage in Notepad++
 
-This file provides Syntax highlighting support for the magpie Language in Notepad++
+This file provides Syntax highlighting support for the Quacko Language in Notepad++
 
 ## screenshot
 
@@ -18,4 +18,4 @@ This file provides Syntax highlighting support for the magpie Language in Notepa
 
 ## Limitation of the notepad++'s syntax highlight
 
-Notepad++'s syntax highlight feature is a little bit limited. For example, the magpie language has two types of line comments. Notepad++ seems could not highlight both. so you need to be careful about line comment. I suggest use only one type of comment across all your magpie source.
+Notepad++'s syntax highlight feature is a little bit limited. For example, the Quacko language has two types of line comments. Notepad++ seems could not highlight both. so you need to be careful about line comment. I suggest use only one type of comment across all your Quacko source.

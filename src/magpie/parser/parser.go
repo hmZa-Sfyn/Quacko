@@ -403,7 +403,7 @@ func (p *Parser) ParseProgram() *ast.Program {
 	program.Statements = []ast.Statement{}
 	program.Imports = make(map[string]*ast.ImportStatement)
 
-	//if the magpie file only have ';', then we should return earlier.
+	//if the Quacko file only have ';', then we should return earlier.
 	if p.curTokenIs(token.SEMICOLON) && p.peekTokenIs(token.EOF) {
 		return program
 	}

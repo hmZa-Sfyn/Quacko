@@ -1,4 +1,4 @@
-# Magpie Programming Language
+# Quacko Programming Language
 
 Chinese version: [中文](README_cn.md)
 
@@ -6,7 +6,7 @@ Table of Contents
 =================
 <details><summary>TOC</summary>
 
-* [Magpie Programming Language](#magpie-programming-language)
+* [Quacko Programming Language](#magpie-programming-language)
   * [Summary](#summary)
   * [Overview](#overview)
   * [Installation](#installation)
@@ -75,11 +75,11 @@ Table of Contents
 
 ## Summary
 
-Magpie is a toy language interpreter, written in Go. It has C-style syntax, and is largely inspired by Ruby, Python, Perl and c#
+Quacko is a toy language interpreter, written in Go. It has C-style syntax, and is largely inspired by Ruby, Python, Perl and c#
 It support the normal control flow, functional programming and object oriented programming.
 It also has a REPL with realtime syntax highlighter.
 
-This is a sample program using magpie language:
+This is a sample program using Quacko language:
 
 ```swift
 
@@ -216,7 +216,7 @@ To access the REPL, simply run the following:
 
 ```sh
 ~ » magpie
-Magpie programming language REPL
+Quacko programming language REPL
 
 >>
 ```
@@ -224,14 +224,14 @@ Magpie programming language REPL
 or, to run a program:
 
 ```sh
-magpie path/to/file
+Quacko path/to/file
 ```
 
 ## Language Tour
 
 ### Comments
 
-Magpie support two kinds of single line comment and also block comment.
+Quacko support two kinds of single line comment and also block comment.
 
 ```swift
 // this is a single line comment
@@ -244,7 +244,7 @@ Magpie support two kinds of single line comment and also block comment.
 
 ### Data Types
 
-Magpie supports 9 basic data types: `String`, `Int`, `UInt`, `Float`, `Bool`, `Array`, `Hash`, `Tuple` and `Nil`
+Quacko supports 9 basic data types: `String`, `Int`, `UInt`, `Float`, `Bool`, `Array`, `Hash`, `Tuple` and `Nil`
 
 ```swift
 s1 = "hello, 黄"          # strings are UTF-8 encoded
@@ -330,7 +330,7 @@ println(f2(1,2))
 
 ### Variables
 
-Variables in Magpie could start with the keyword `let`, or nothing with the
+Variables in Quacko could start with the keyword `let`, or nothing with the
 form `variable=value`.
 
 ```swift
@@ -358,7 +358,7 @@ let (j, k, l) = {"j": 50, "l": "good"}
 
 ```
 
-Note：Starting from Magpie 5.0，when the decalared variable already exists, it's value will be overwritten:
+Note：Starting from Quacko 5.0，when the decalared variable already exists, it's value will be overwritten:
 
 ```swift
 let x, y = 10, 20;
@@ -493,7 +493,7 @@ println(LogOption.getName(LogOption.Lshortfile))
 ```
 
 ### Meta-Operators
-Magpie has some meta-operators borrowed from perl6.
+Quacko has some meta-operators borrowed from perl6.
 There are strict rules for meta-operators:
 
 * Meta-operators can only operator on arrays.
@@ -514,7 +514,7 @@ println(value1) //result: 40
 println(value2) //result: 2HELLO2
 ```
 
-At the moment, Magpie has six meta-operators：
+At the moment, Quacko has six meta-operators：
 * <p>~+</p>
 * <p>~-</p>
 * <p>~*</p>
@@ -1295,7 +1295,7 @@ println(revTuple) //result: (9, 8, 7, 6, 4, 2, 5, 3, 1)
 ```
 
 ### Extend basic type 
-Magpie also provides support for extending basic types.
+Quacko also provides support for extending basic types.
 
 The basic types that can be extended are as follows：
 * integer
@@ -1339,7 +1339,7 @@ printf("[25,20,38].find(38) = %d\n", idx) //found, returns 2
 ```
 
 ### Optional type
-Magpie has support for Optional type like java8.
+Quacko has support for Optional type like java8.
 
 ```swift
 fn safeDivision?(a, b) {
@@ -1394,7 +1394,7 @@ elif (RUNTIME_OS == "windows") {
 
 ### class
 
-Magpie has limited support for the oop concept, below is a list of features:
+Quacko has limited support for the oop concept, below is a list of features:
 
 * inheritance and polymorphism
 * operator overloading
@@ -1405,8 +1405,8 @@ Magpie has limited support for the oop concept, below is a list of features:
 * class annotations(limited support)
 * constructor method and normal methods support default value and variadic parameters
 
-The magpie parser could parse `public`, `private`, `protected`, but it has no effect in the evaluation phase.
-That means magpie do not support access modifiers at present.
+The Quacko parser could parse `public`, `private`, `protected`, but it has no effect in the evaluation phase.
+That means Quacko do not support access modifiers at present.
 
 You use `class` keyword to declare a class and use `new class(xxx)` to create an instance of a `class`.
 
@@ -1639,7 +1639,7 @@ dateObj.getDateInfo()
 
 #### indexer
 
-Magpie has support for class `indexer`(like c#). 
+Quacko has support for class `indexer`(like c#). 
 An indexer is a member that enables an object to be indexed in the same way as an array.
 
 You declare an Indexer using `property this[parameter]`.
@@ -1747,7 +1747,7 @@ Note：Non-static variable/method/property could access static variable/method/p
 
 #### Class Category
 
-Magpie also support class Category like objective-c（C# is called 'extension methods'）.
+Quacko also support class Category like objective-c（C# is called 'extension methods'）.
 
 ```swift
 class Animal {
@@ -1773,7 +1773,7 @@ animal.Run()
 
 #### Annotations
 
-Magpie also has very simple annotation support like java：
+Quacko also has very simple annotation support like java：
 
 * Only method and property of class can have annotations(not class itself, or other simple functions)
 * In the body of `Annotation` class, only support property, do not support methods.
@@ -1781,7 +1781,7 @@ Magpie also has very simple annotation support like java：
 
 
 You could use `class @annotationName {}` to declare an annotation class.
-Magpie also include some builtin annotations:
+Quacko also include some builtin annotations:
 
 * @Override annotation(just like java's @Override).
 * @NotNull
@@ -2041,7 +2041,7 @@ println(hash)
 
 ### Comprehensions
 
-Magpie support list(array,string, range, tuple) comprehensions.
+Quacko support list(array,string, range, tuple) comprehensions.
 list comprehension will return an array.
 please see following examples:
 
@@ -2067,7 +2067,7 @@ z = [v * 10 for k,v in {"key1": 10, "key2": 20, "key3": 30}]
 println(z) //result: [100, 200, 300]
 ```
 
-Magpie also support hash comprehension.
+Quacko also support hash comprehension.
 hash comprehension will return a hash.
 please see following examples:
 
@@ -2129,7 +2129,7 @@ println(values)
 
 ### Function
 
-Function in magpie is a first-class object. This means the language supports passing functions as arguments to
+Function in Quacko is a first-class object. This means the language supports passing functions as arguments to
 other functions, returning them as the values from other functions, and assigning them to variables or storing
 them in data structures.
 
@@ -2213,7 +2213,7 @@ println("hhf".upper)  //result: "HHF"
 println("hhf".upper())
 ```
 
-Before ver5.0, Magpie do not support multiple return values, But there are many ways to do it.
+Before ver5.0, Quacko do not support multiple return values, But there are many ways to do it.
 
 Below suggest a way of doing it:
 
@@ -2233,7 +2233,7 @@ if ret[1] != "" {
 }
 ```
 
-Starting from ver5.0, Magpie support multiple return values using 'let'.
+Starting from ver5.0, Quacko support multiple return values using 'let'.
 The returned values are wrapped as a tuple.
 
 ```swift
@@ -2315,15 +2315,15 @@ for i in XRange(10) {
 ```
 
 ## Use `go` language modules
-Magpie has experimental support for working with `go` modules.
+Quacko has experimental support for working with `go` modules.
 
 If you need to use go`s language package function, you first need to use `RegisterFunctions` or `RegisterVars` to
-register `go` language functions or types into magpie language.
+register `go` language functions or types into Quacko language.
 
 Below is an example of `main.go`(extracted):
 
 ```swift
-// Because in magpie we already have built in module `fmt`, here we use `gfmt` for package name.
+// Because in Quacko we already have built in module `fmt`, here we use `gfmt` for package name.
 eval.RegisterFunctions("gfmt", []interface{}{
     fmt.Errorf,
     fmt.Println, fmt.Print, fmt.Printf,
@@ -2340,7 +2340,7 @@ eval.RegisterFunctions("io/ioutil", []interface{}{
 
 eval.Eval(program, scope)
 ```
-Now, in your magpie file, you could use it like below:
+Now, in your Quacko file, you could use it like below:
 
 ```swift
 gfmt.Printf("Hello %s!\n", "go function");
@@ -2363,7 +2363,7 @@ For more detailed examples, please see `goObj.mp`.
 ## Standard module introduction
 
 In magpie, there are some standard modules provided for you. e.g. json, sql, sort, fmt, os, logger, time, flag, net, http, etc...
-This is a brief introduction of some of the magpie standard modules, don't expect it to be thorough.
+This is a brief introduction of some of the Quacko standard modules, don't expect it to be thorough.
 If you are curious, please see the source code.
 
 #### fmt module
@@ -2599,7 +2599,7 @@ println('["st", "ng"] selectManyByIndexed() = {result}')
 
 #### Linq for file
 
-Now, magpie has a powerful `linq for file` support. it can be used to operate
+Now, Quacko has a powerful `linq for file` support. it can be used to operate
 files a little bit like awk. See below for example:
 
 ```swift
@@ -2748,7 +2748,7 @@ For testing `sql` module, you need to do following:
     _ "github.com/mattn/go-sqlite3"
 ```
 
-3. Recompile magpie source.
+3. Recompile Quacko source.
 
 Below is a complete source of the `examples/db.mp`:
 
@@ -2860,8 +2860,8 @@ Note: For detailed explanation of 'Regular Expression' pattern matching, you cou
 
 Included has some useful utilities like `formatter` and `highlighter`.
 
-The formatter utility can format the magpie language.
-The highlighter utility can highlight the magpie language to console or html.
+The formatter utility can format the Quacko language.
+The highlighter utility can highlight the Quacko language to console or html.
 
 You could also combine the two utilities:
 

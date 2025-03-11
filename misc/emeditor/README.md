@@ -1,6 +1,6 @@
 # Syntax highlighter for magpie
 
-This file provides Syntax highlighting support for the magpie Language in EmEditor.
+This file provides Syntax highlighting support for the Quacko Language in EmEditor.
 
 ## screenshot
 
@@ -17,6 +17,6 @@ Select `Tools|Select Configuration|Define Configurations...`, Then do the follow
 
 1. In `Define Configurations` dialog, click `Properties` or double click `magpie` item in the `Configurations` lists.
 
-1. In the `magpie propertie` dialog, click `Highlight(1)` tab, click the `Import...` buttion, import the `magpie.esy` file.
+1. In the `Quacko propertie` dialog, click `Highlight(1)` tab, click the `Import...` buttion, import the `magpie.esy` file.
 
 1. Select `Highlight(2)` tab, in the two `Line Comment` fields, input `//` and `#` separately.

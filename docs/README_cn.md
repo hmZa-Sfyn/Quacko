@@ -222,7 +222,7 @@ Property 'LastName' is not valid!
 
 ```sh
 ~ » magpie
-Magpie programming language REPL
+Quacko programming language REPL
 
 >>
 ```
@@ -230,7 +230,7 @@ Magpie programming language REPL
 或者运行一个magpie文件:
 
 ```sh
-magpie path/to/file
+Quacko path/to/file
 ```
 
 ## 语言之旅
@@ -363,7 +363,7 @@ let (j, k, l) = {"j": 50, "l": "good"}
 
 ```
 
-注：从Magpie 5.0开始，`let`的含义有所变化，如果声明的变量已经存在，给变量赋值的时候就会覆盖原来的值：
+注：从Quacko 5.0开始，`let`的含义有所变化，如果声明的变量已经存在，给变量赋值的时候就会覆盖原来的值：
 
 ```swift
 let x, y = 10, 20;
