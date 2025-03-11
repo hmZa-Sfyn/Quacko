@@ -1841,7 +1841,7 @@ func evalInfixExpression(node *ast.InfixExpression, left, right Object, scope *S
 	}
 
 	// Check if left is 'Writable'
-	if _, ok := left.(Writable); ok { //There are two Writeables in magpie: FileObject, HttpResponseWriter.
+	if _, ok := left.(Writable); ok { //There are two Writeables in Quacko:  FileObject, HttpResponseWriter.
 		if node.Operator == ">>" { // '>>' is refered as 'extraction operator'. e.g.
 			// Left is a file object
 			if left.Type() == FILE_OBJ { // FileObject is also readable

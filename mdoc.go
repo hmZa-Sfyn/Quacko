@@ -49,7 +49,7 @@ func genDoc(filename string, cfg doc.Config) {
 	}
 	f, err := ioutil.ReadFile(wd + "/" + filename)
 	if err != nil {
-		fmt.Println("magpie: ", err.Error())
+		fmt.Println("Quacko:  ", err.Error())
 		os.Exit(1)
 	}
 

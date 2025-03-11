@@ -13,7 +13,6 @@ import (
 	"magpie/lexer"
 	"magpie/parser"
 	"magpie/message"
-	"magpie/repl"
 	"os"
 )
 
@@ -25,7 +24,7 @@ func runProgram(debug bool, filename string) {
 	}
 	f, err := ioutil.ReadFile(wd + "/" + filename)
 	if err != nil {
-		fmt.Println("magpie: ", err.Error())
+		fmt.Println("Quacko:  ", err.Error())
 		os.Exit(1)
 	}
 
