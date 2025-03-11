@@ -11,27 +11,32 @@
     </pre>
 </p>
 
-# Magpie Programming Language
+# Quacko Programming Language
 
-Chinese version: [中文](README_cn.md)
 
 ## Summary
 
-Magpie is a toy language interpreter, written in Go. It has C-style syntax, and is largely
-inspired by Ruby, Python, Perl and c#.
+Quacko: A Playful Yet Powerful Language Interpreter
 
-It support the normal control flow, functional programming and object oriented programming.
-and also can import golang's module.
+Quacko is a toy programming language interpreter written in Go, designed to blend simplicity with powerful features. It sports a C-style syntax and draws inspiration from languages like Ruby, Python, Perl, and C#, creating a flexible and expressive environment for coding enthusiasts.
 
-It has a built-in documentation generator(mdoc) for generating html document from magpie source.
+Key Features:
 
-It has a simple debugger which you can experience with it.
+Versatile Programming Paradigms: Quacko supports standard control flow, functional programming, and object-oriented programming, making it adaptable to various coding styles.
 
-It also has a REPL with realtime syntax highlighter.
+Go Module Integration: Easily import and use Go modules directly within your Quacko code, extending functionality effortlessly.
 
-I also made a simple programming language written using `magpie`.
+Built-in Documentation Generator (mdoc): Generate clean, navigable HTML documentation straight from your Quacko source files.
 
-You can even run most of the `magpie` script in a web browser.
+Lightweight Debugger: Experiment and troubleshoot your code with a simple yet effective built-in debugger.
+
+Interactive REPL with Syntax Highlighting: Test ideas on the fly with a responsive REPL, complete with real-time syntax highlighting for an enhanced coding experience.
+
+Web Execution: Run most Quacko scripts directly in a web browser, opening up endless possibilities for online demos, tutorials, and interactive code sharing.
+
+As a bonus, Quacko is self-hosting — a simple programming language has already been implemented using Quacko itself!
+
+Whether you’re a curious beginner or an adventurous developer, Quacko offers a unique playground to explore, build, and have fun with code.
 
 ## Documention
 
@@ -169,7 +174,7 @@ service Hello on "0.0.0.0:8090:debug" { //':debug': for debugging request
 
 ## Getting started
 
-Below demonstrates some features of the Magpie language:
+Below demonstrates some features of the Quacko language:
 
 ### Basic
 
@@ -275,8 +280,8 @@ for i in a where i % 2 != 0 {
 
 # read line by line
 using (f = open("./file.log", "r")) {
-    for line in <$f> where line =~ ``magpie`` {
-        println(line) //print only lines which match 'magpie'
+    for line in <$f> where line =~ ``Quacko`` {
+        println(line) //print only lines which match 'Quacko'
     }
 }
 ```
@@ -440,7 +445,7 @@ println(dt4 <= dt5) //returns true
 
 ### Regular expression
 
-In magpie, regard to regular expression, you could use:
+In Quacko, regard to regular expression, you could use:
 
 * Regular expression literal
 * 'regexp' module
@@ -585,7 +590,7 @@ elif (RUNTIME_OS == "windows") {
 ```
 
 ### async/await processing
-Magpie support `async/await`.
+Quacko support `async/await`.
 
 ```csharp
 let add = async fn(a, b) { a + b }
