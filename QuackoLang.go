@@ -223,7 +223,7 @@ func main() {
 	if len(args) == 0 {
 		fmt.Println("Quacko programming language: v-0.1\n")
 	} else {
-		if len(args) == 2 {
+		if len(args) >= 1 {
 			if args[0] == "-d" || args[0] == "--debug" { // debug
 				runProgram(true, args[1])
 			} else {
