@@ -1,5 +1,14 @@
 <p align="center">
-    <img alt="magpie language logo" src="https://github.com/haifenghuang/magpie/blob/master/magpie.png?raw=true" width="310">
+    <pre>
+        <code>
+    .88888.                               dP                
+    d8'   `8b                             88                
+    88     88  dP    dP .d8888b. .d8888b. 88  .dP  .d8888b. 
+    88  db 88  88    88 88'  `88 88'  `"" 88888"   88'  `88 
+    Y8.  Y88P  88.  .88 88.  .88 88.  ... 88  `8b. 88.  .88 
+    `8888PY8b  `88888P' `88888P8 `88888P' dP   `YP `88888P'
+        </code>
+    </pre>
 </p>
 
 # Magpie Programming Language
