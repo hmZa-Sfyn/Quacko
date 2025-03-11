@@ -221,8 +221,7 @@ func main() {
 	//We must reset `os.Args`, or the `flag` module will not functioning correctly
 	os.Args = os.Args[1:]
 	if len(args) == 0 {
-		fmt.Println("Quacko programming language REPL\n")
-		repl.Start(os.Stdout, true)
+		fmt.Println("Quacko programming language: v-0.1\n")
 	} else {
 		if len(args) == 2 {
 			if args[0] == "-d" || args[0] == "--debug" { // debug
