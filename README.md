@@ -70,12 +70,6 @@ Go Package Integration: Register Go functions and variables directly in Quacko.
 
 🛠 Developer Tools:
 
-Syntax-Highlighting REPL: A live console with real-time syntax highlighting.
-
-Documentation Generator (mdoc): Convert Quacko source code into beautiful HTML documentation.
-
-Debugger: A simple but effective debugging tool.
-
 Macro Processing: Basic macros to streamline repetitive tasks.
 
 Integrated Services: Built-in capabilities for service-based architecture.
@@ -213,7 +207,7 @@ b = true               // bool
 a = [1, "2"]           // array
 h = {"a": 1, "b": 2}   // hash
 t = (1,2,3)            // tuple
-dt = dt/2018-01-01 12:01:00/  //datetime literal
+dt = dt/2025-01-01 12:01:00/  //datetime literal
 n = nil
 ```
 

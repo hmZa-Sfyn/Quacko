@@ -335,7 +335,7 @@ println(arr1Json)
 let expnd = os.expand("my home is ${HOME}, NAME is $NAME", fn(x) {
                            case x in {
                               "HOME"  { return ``[/c/Users/huanghai/Desktop/magpie-master]`` }
-                              "NAME"  { return ``[HuangHaiFeng]`` }
+                              "NAME"  { return ``[Elon Musk]`` }
                            }
             })
 println(expnd)
@@ -344,7 +344,7 @@ println(expnd)
 let verV = flag.bool("version", false, "0.1")
 let ageV = flag.int("age", 40, "an int")
 let heightV = flag.float("height", 120.5, "a float")
-let nameV = flag.string("name", "HuangHaiFeng", "a string")
+let nameV = flag.string("name", "Elon Musk", "a string")
 let hobbiesV = flag.string("hobbies", "1,2,3", "a comma-delimited string")
 flag.parse()
 

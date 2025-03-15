@@ -223,16 +223,6 @@ func main() {
 	if len(args) == 0 {
 		fmt.Println("Quacko programming language: v-0.1\n")
 	} else {
-		if len(args) >= 1 {
-			if args[0] == "-d" || args[0] == "--debug" { // debug
-				runProgram(true, args[1])
-			} else {
-				fmt.Println("Usage: Quacko -d file.mp")
-				os.Exit(1)
-			}
-		} else {
-			runProgram(false, args[0])
-		}
-
+		runProgram(false, args[0])
 	}
 }

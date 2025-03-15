@@ -1,7 +1,5 @@
 # Quacko Programming Language
 
-Chinese version: [中文](README_cn.md)
-
 Table of Contents
 =================
 <details><summary>TOC</summary>
@@ -2051,7 +2049,7 @@ x = [[word.upper(), word.lower(), word.title()] for word in ["hello", "world", "
 println(x) //result: [["HELLO", "hello", "Hello"], ["WORLD", "world", "World"], ["GOOD", "good", "Good"], ["MORNING", "morning", "Morning"]]
 
 //string comprehension (here string is treated like an array)
-y = [ c.upper() for c in "huanghaifeng" where $_ % 2 != 0] //$_ is the index
+y = [ c.upper() for c in "Elon Musk" where $_ % 2 != 0] //$_ is the index
 println(y) //result: ["U", "N", "H", "I", "E", "G"]
 
 //range comprehension
@@ -2420,7 +2418,7 @@ file.close() //do not forget to close the file
 let verV = flag.bool("version", false, "0.1")
 let ageV = flag.int("age", 40, "an int")
 let heightV = flag.float("height", 120.5, "a float")
-let nameV = flag.string("name", "HuangHaiFeng", "a string")
+let nameV = flag.string("name", "Elon Musk", "a string")
 let hobbiesV = flag.string("hobbies", "1,2,3", "a comma-delimited string")
 flag.parse()
 

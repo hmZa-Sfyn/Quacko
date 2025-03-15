@@ -25,7 +25,7 @@ x = [[word.upper(), word.lower(), word.title()] for word in ["hello", "world", "
 println(x)
 
 //string
-y = [ c.upper() for c in "huanghaifeng" where $_ % 2 != 0] //$_ is the index
+y = [ c.upper() for c in "Elon Musk" where $_ % 2 != 0] //$_ is the index
 println(y)
 
 //range
