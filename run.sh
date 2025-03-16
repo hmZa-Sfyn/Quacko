@@ -11,10 +11,10 @@ echo "alias quackolang='$current_loc/QuackoLang'" >> ~/.bashrc
 #echo "alias quackolang='$current_loc/QuackoLang'" >> ~/.zshrc
 
 # Install DuckPM and LangMang
-echo "alias quacko='quackolang $current_loc/QuackoLanguageManager/LangMang.qk'" >> ~/.bashrc
+echo "alias quacko='quackolang $current_loc/QuackoLanguageManager/LangMang.qk.cs'" >> ~/.bashrc
 #echo "alias quacko='quackolang $current_loc/QuackoLanguageManager/LangMang.qk'" >> ~/.zshrc
 
-echo "alias duckpm='quackolang $current_loc/DuckPM/duckPM.qk'" >> ~/.bashrc
+echo "alias duckpm='quackolang $current_loc/DuckPM/duckPM.qk.cs'" >> ~/.bashrc
 #echo "alias duckpm='quackolang $current_loc/DuckPM/duckPM.qk'" >> ~/.zshrc
 
 # Refresh shell
