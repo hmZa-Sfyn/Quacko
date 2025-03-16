@@ -6,6 +6,14 @@
 echo "Installing yo and generator-code..."
 npm install -g yo generator-code
 
+# Check if yo is installed
+if ! command -v yo &> /dev/null; then
+    echo "Error: 'yo' command not found. Please ensure npm global path is in your PATH."
+    echo "Run the following command and try again:"
+    echo "export PATH=\$PATH:$(npm config get prefix)/bin"
+    exit 1
+fi
+
 # Step 2: Create the extension
 echo "Creating the Quacko extension..."
 EXTENSION_NAME="quacko-language"
