@@ -4,7 +4,7 @@ Table of Contents
 =================
 <details><summary>TOC</summary>
 
-* [Quacko Programming Language](#magpie-programming-language)
+* [Quacko Programming Language](#quacko-programming-language)
   * [Summary](#summary)
   * [Overview](#overview)
   * [Installation](#installation)
@@ -213,7 +213,7 @@ Just download the repository and run `./run.sh`
 To access the REPL, simply run the following:
 
 ```sh
-~ » magpie
+~ » quacko
 Quacko programming language REPL
 
 >>
@@ -259,7 +259,7 @@ n = nil
 
 ### Constants(Literal)
 
-In magpie, there are mainly eleven types of constants(Literals).
+In quacko, there are mainly eleven types of constants(Literals).
 
 * Integer
 * UInteger
@@ -460,7 +460,7 @@ fmt.printf("newArr=%v\n", newArr)
 
 ### `enum` keyword
 
-In Magpie, you can use enum to define constants.
+In quacko, you can use enum to define constants.
 
 ```swift
 LogOption = enum {
@@ -715,7 +715,7 @@ case i in {
 
 ```
 ### using statement
-In magpie, if you have some resources you want to release/free/close, e.g. close opened file, close network connection etc，
+In quacko, if you have some resources you want to release/free/close, e.g. close opened file, close network connection etc，
 you can use the `using` statement just like `c#`.
 
 ```swift
@@ -739,7 +739,7 @@ using (infile = newFile("./file.demo", "r")) {
 ```
 
 ### User Defined Operator
-In magpie, you are free to define some operators, but you cannot
+In quacko, you are free to define some operators, but you cannot
 overwrite predefined operators.
 
 > Note: Not all operators could be user defined.
@@ -836,7 +836,7 @@ Below is a list of predefined operators and user defined operators:
 
 ### Integer
 
-In magpie, integer is treated as an object, so you could call it's methods.
+In quacko, integer is treated as an object, so you could call it's methods.
 Please see below examples:
 
 ```swift
@@ -872,7 +872,7 @@ if 9.isOdd() {
 
 ### Float
 
-In magpie, float is also treated as an object, so you could call it's methods.
+In quacko, float is also treated as an object, so you could call it's methods.
 Please see below examples:
 
 ```swift
@@ -888,7 +888,7 @@ println(f2)
 
 ### Decimal
 
-In magpie, decimal is Arbitrary-precision fixed-point decimal numbers.
+In quacko, decimal is Arbitrary-precision fixed-point decimal numbers.
 And the code mainly based on [decimal](https://github.com/shopspring/decimal).
 
 Please see below examples:
@@ -914,7 +914,7 @@ fmt.println("123.45678901234567/3 = ", d3.div(d2))
 
 ### Array
 
-In magpie, you could use [] to initialize an empty array:
+In quacko, you could use [] to initialize an empty array:
 
 ```swift
 emptyArr = []
@@ -1013,7 +1013,7 @@ println(arr) // result: [3,4,3,4,3,4]
 
 ### String
 
-In magpie, there are three types of `string`:
+In quacko, there are three types of `string`:
 
 * Raw string
 * Double quoted string(Could not contains newline)
@@ -1042,7 +1042,7 @@ println('str={str}') //output: "Hello World"
 
 ```
 
-In magpie, strings are utf8-encoded, you could use utf-8 encoded name as a variable name.
+In quacko, strings are utf8-encoded, you could use utf-8 encoded name as a variable name.
 
 ```swift
 三 = 3
@@ -1101,7 +1101,7 @@ println(a) // result: 121314.6789
 ```
 
 ### Hash
-In magpie, the builtin hash will keep the order of keys when they are added to the hash, just like python's orderedDict.
+In quacko, the builtin hash will keep the order of keys when they are added to the hash, just like python's orderedDict.
 
 You could use {} to initialize an empty hash:
 
@@ -1135,7 +1135,7 @@ hashObj -= 5
 println(hash)
 ```
 
-In magpie, Hash is also an object, so you could use them to operate on hash object:
+In quacko, Hash is also an object, so you could use them to operate on hash object:
 
 ```swift
 
@@ -1164,7 +1164,7 @@ println(hash[key1]) # result：12
 
 ### Tuple
 
-In magpie, `tuple` is just like array, but it could not be changed once it has been created.
+In quacko, `tuple` is just like array, but it could not be changed once it has been created.
 
 Tuples are constructed using parenthesized list notation:
 
@@ -1417,7 +1417,7 @@ class Animal {
 }
 ```
 
-In magpie, all class is inherited from the root class `object`. 
+In quacko, all class is inherited from the root class `object`. 
 `object` class include some common method like `toString()`, `instanceOf()`, `is_a()`, `classOf()`, `hashCode`.
 
 Above code is same as:
@@ -1952,7 +1952,7 @@ if (ret == false) {
 
 ```
 
-Maybe you are curious about why `nil` or `false` have message() function? Because in magpie, `nil` and `false`
+Maybe you are curious about why `nil` or `false` have message() function? Because in quacko, `nil` and `false`
 both are objects, so they have method to operate on it.
 
 ### About `defer` keyword
@@ -1994,7 +1994,7 @@ defer file.close()
 
 ### Concatenation of different types
 
-In magpie, you could concatenate of different types. See below for examples:
+In quacko, you could concatenate of different types. See below for examples:
 
 ```swift
 // Number plus assignment
@@ -2360,7 +2360,7 @@ For more detailed examples, please see `goObj.mp`.
 
 ## Standard module introduction
 
-In magpie, there are some standard modules provided for you. e.g. json, sql, sort, fmt, os, logger, time, flag, net, http, etc...
+In quacko, there are some standard modules provided for you. e.g. json, sql, sort, fmt, os, logger, time, flag, net, http, etc...
 This is a brief introduction of some of the Quacko standard modules, don't expect it to be thorough.
 If you are curious, please see the source code.
 
@@ -2504,7 +2504,7 @@ if (ret == false) {
 
 #### linq module
 
-In magpie, the `linq` module support seven types of object:
+In quacko, the `linq` module support seven types of object:
 
 * File object (create using `newFile` builtin function)
 * Csv reader object (created using `newCsvReader` builtin function)
@@ -2825,7 +2825,7 @@ os.exit()
 
 ## About regular expression
 
-In magpie, regard to regular expression, you could use:
+In quacko, regard to regular expression, you could use:
 
 * Regular expression literal
 * 'regexp' module

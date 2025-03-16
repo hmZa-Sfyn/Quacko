@@ -1,4 +1,4 @@
-//#!/usr/bin/magpie
+//#!/usr/bin/quacko
 const a = 3.14159
 //a = 3.14 //error
 printf("PI=%f\n", a)

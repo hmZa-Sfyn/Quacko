@@ -1,4 +1,4 @@
-//#!/usr/bin/magpie
+//#!/usr/bin/quacko
 # Using 'let'(optional) to declare variable
 # functio as a first-class object
 let add  =  fn(x,y){
@@ -334,7 +334,7 @@ println(arr1Json)
 #Test 'os.expand' method
 let expnd = os.expand("my home is ${HOME}, NAME is $NAME", fn(x) {
                            case x in {
-                              "HOME"  { return ``[/c/Users/huanghai/Desktop/magpie-master]`` }
+                              "HOME"  { return ``[/c/Users/huanghai/Desktop/quacko-master]`` }
                               "NAME"  { return ``[Elon Musk]`` }
                            }
             })

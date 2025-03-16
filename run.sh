@@ -12,5 +12,6 @@ echo "\nalias quackolang='$current_loc/QuackoLang'" >> ~/.zshrc
 bash
 
 echo "Done settingup your env!"
-echo "type: `quackolang` to run QuackoLang"
+echo "type: `quackolang` to run QuackoLang, type: `quacko --version` to check the version"
+echo "Happy coding!"
 
