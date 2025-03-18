@@ -1,0 +1,26 @@
+{
+    "name": "mp",
+    "displayName": "Quacko",
+    "description": "Quacko language",
+    "version": "0.0.1",
+    "publisher": "Quacko",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "Quacko",
+            "aliases": ["Quacko", "Quacko"],
+            "extensions": [".qk"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "Quacko",
+            "scopeName": "source.qk",
+            "path": "./syntaxes/magpie.tmLanguage"
+        }]
+    }
+}

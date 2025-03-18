@@ -2356,7 +2356,7 @@ for file in files {
 }
 ```
 
-For more detailed examples, please see `goObj.mp`.
+For more detailed examples, please see `goObj.qk`.
 
 ## Standard module introduction
 
@@ -2748,7 +2748,7 @@ For testing `sql` module, you need to do following:
 
 3. Recompile Quacko source.
 
-Below is a complete source of the `examples/db.mp`:
+Below is a complete source of the `examples/db.qk`:
 
 ```swift
 let dbOp = fn() {
@@ -2864,7 +2864,7 @@ The highlighter utility can highlight the Quacko language to console or html.
 You could also combine the two utilities:
 
 ```sh
-./fmt xx.mp | ./highlight  //output to console(console highlight not support windows)
+./fmt xx.qk | ./highlight  //output to console(console highlight not support windows)
 ```
 
 ## Document generator
@@ -2883,13 +2883,13 @@ The tool only support below statement for document generator:
 
 ```sh
 //generate markdown file, the generated file is named 'doc.md'
-./mdoc examples/doc.mp
+./mdoc examples/doc.qk
 
 //generate html file, the generated file is named 'doc.html'
-./mdoc -html examples/doc.mp
+./mdoc -html examples/doc.qk
 
 //generate html file, also generate source code of classes and functions. the generated file is named 'doc.html'
-./mdoc -html -showsource examples/doc.mp
+./mdoc -html -showsource examples/doc.qk
 
 //Use the some builtin css types for styling the generated html
 //    0 - GitHub
@@ -2901,14 +2901,14 @@ The tool only support below statement for document generator:
 //    6 - Atom Dark
 //    7 - Forgotten Light
 
-./mdoc -html -showsource -css 1 examples/doc.mp
+./mdoc -html -showsource -css 1 examples/doc.qk
 
 //Using external css file for styling the generated html file.
 //The '-cssfile' option has higher priority than the '-css' option.
 //If the supplied css file does not exists, then the '-css' option will be used.
-./mdoc -html -showsource -css 1 -cssfile ./examples/github-markdown.css examples/doc.mp
+./mdoc -html -showsource -css 1 -cssfile ./examples/github-markdown.css examples/doc.qk
 
-//processing all the '.mp' files in examples directory, generate html.
+//processing all the '.qk' files in examples directory, generate html.
 ./mdoc -html examples
 ```
 The generating of HTML document is base on github REST API，so you must have network connection to make it work.

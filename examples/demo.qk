@@ -292,13 +292,13 @@ println('yyy2 is {yyy2}')
 println(os.args())
 println(os.getenv("PATH"))
 println(os.getwd())
-println(os.runCmd("find", ".", "-name", ``\*.mp``))
-//os.copyFile("./xx.mp", "./demo.mp")
+println(os.runCmd("find", ".", "-name", ``\*.qk``))
+//os.copyFile("./xx.qk", "./demo.qk")
 
 //Below will not get expected result, WHY?
 //I tried using go language，same problem, not know why
 //spawn fn() {
-//    println(os.runCmd("find", ".", "-name", ``\*.mp``))
+//    println(os.runCmd("find", ".", "-name", ``\*.qk``))
 //}()
 
 
@@ -363,7 +363,7 @@ if (flag.isSet("age")) {
 let filelist=[]
 #test filepath object
 let walkf = fn(path, info) {
-	if (filepath.ext(path) == ".mp") {
+	if (filepath.ext(path) == ".qk") {
 		println("path = ", path, ",  size = ", info.size())
 		filelist.push(path)
 	}

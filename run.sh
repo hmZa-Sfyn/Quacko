@@ -17,6 +17,9 @@ echo "alias quacko='quackolang $current_loc/QuackoLanguageManager/LangMang.qk.cs
 echo "alias duckpm='quackolang $current_loc/DuckPM/duckPM.qk.cs'" >> ~/.bashrc
 #echo "alias duckpm='quackolang $current_loc/DuckPM/duckPM.qk'" >> ~/.zshrc
 
+mkdir ~/.quacko_lang_important_do_not_delete
+mkdir ~/.quacko_lang_important_do_not_delete/universal_libs
+
 # Refresh shell
 source ~/.bashrc
 #source ~/.zshrc
