@@ -1,0 +1,281 @@
+## Regex Library
+
+import libs.std.io
+import libs.std.fs
+
+class Regex {
+    static fn Match(pattern, str) {
+        # Use Python to match a regular expression
+        script = '''
+import re
+
+try:
+    if re.search("''' + pattern + '''", "''' + str + '''"):
+        print("True")
+    else:
+        print("False")
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_match.py", script)
+        result = `python3 ./regex_match.py`
+        `rm ./regex_match.py`
+        return result
+    }
+
+    static fn Replace(pattern, str, replacement) {
+        # Use Python to replace a regular expression
+        script = '''
+import re
+
+try:
+    print(re.sub("''' + pattern + '''", "''' + replacement + '''", "''' + str + '''"))
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_replace.py", script)
+        result = `python3 ./regex_replace.py`
+        `rm ./regex_replace.py`
+        return result
+    }
+
+    static fn FindAll(pattern, str) {
+        # Use Python to find all matches of a regular expression
+        script = '''
+import re
+
+try:
+    print(re.findall("''' + pattern + '''", "''' + str + '''"))
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_find_all.py", script)
+        result = `python3 ./regex_find_all.py`
+        `rm ./regex_find_all.py`
+        return result
+    }
+
+    static fn Split(pattern, str) {
+        # Use Python to split a string by a regular expression
+        script = '''
+import re
+
+try:
+    print(re.split("''' + pattern + '''", "''' + str + '''"))
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_split.py", script)
+        result = `python3 ./regex_split.py`
+        `rm ./regex_split.py`
+        return result
+    }
+
+    static fn Escape(str) {
+        # Use Python to escape special characters in a regular expression
+        script = '''
+import re
+
+print(re.escape("''' + str + '''"))
+'''
+        fs.WriteToFile("./regex_escape.py", script)
+        result = `python3 ./regex_escape.py`
+        `rm ./regex_escape.py`
+        return result
+    }
+
+    static fn Search(pattern, str) {
+        # Use Python to search for a regular expression in a string and return the match object
+        script = '''
+import re
+
+try:
+    match = re.search("''' + pattern + '''", "''' + str + '''")
+    if match:
+        print(match.group(0))
+    else:
+        print(None)
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_search.py", script)
+        result = `python3 ./regex_search.py`
+        `rm ./regex_search.py`
+        return result
+    }
+
+    static fn MatchString(pattern, str) {
+        # Use Python to match a regular expression at the beginning of a string
+        script = '''
+import re
+
+try:
+    match = re.match("''' + pattern + '''", "''' + str + '''")
+    if match:
+        print(match.group(0))
+    else:
+        print(None)
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_match_string.py", script)
+        result = `python3 ./regex_match_string.py`
+        `rm ./regex_match_string.py`
+        return result
+    }
+
+    static fn Fullmatch(pattern, str) {
+        # Use Python to match a regular expression to the entire string
+        script = '''
+import re
+
+try:
+    match = re.fullmatch("''' + pattern + '''", "''' + str + '''")
+    if match:
+        print(match.group(0))
+    else:
+        print(None)
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_fullmatch.py", script)
+        result = `python3 ./regex_fullmatch.py`
+        `rm ./regex_fullmatch.py`
+        return result
+    }
+
+    static fn FindIter(pattern, str) {
+        # Use Python to find all non-overlapping matches of a regular expression and return an iterator
+        script = '''
+import re
+
+try:
+    matches = re.finditer("''' + pattern + '''", "''' + str + '''")
+    for match in matches:
+        print(match.group(0))
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_finditer.py", script)
+        result = `python3 ./regex_finditer.py`
+        `rm ./regex_finditer.py`
+        return result
+    }
+
+    static fn Subn(pattern, replacement, str) {
+        # Use Python to replace occurrences of a pattern with a replacement, returning a tuple containing the new string and the number of substitutions made
+        script = '''
+import re
+
+try:
+    print(re.subn("''' + pattern + '''", "''' + replacement + '''", "''' + str + '''"))
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_subn.py", script)
+        result = `python3 ./regex_subn.py`
+        `rm ./regex_subn.py`
+        return result
+    }
+
+    static fn Compile(pattern) {
+        # Use Python to compile a regular expression pattern
+        script = '''
+import re
+
+try:
+    regex = re.compile("''' + pattern + '''")
+    print("Compiled successfully")
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_compile.py", script)
+        result = `python3 ./regex_compile.py`
+        `rm ./regex_compile.py`
+        return result
+    }
+
+    static fn FindAllString(pattern, str) {
+         # Use Python to find all matches of a regular expression and return them as a list of strings
+        script = '''
+import re
+
+try:
+    print(re.findall("''' + pattern + '''", "''' + str + '''"))
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_findallstring.py", script)
+        result = `python3 ./regex_findallstring.py`
+        `rm ./regex_findallstring.py`
+        return result
+    }
+
+    static fn FindAllIndex(pattern, str) {
+         # Use Python to find all matches of a regular expression and return their starting indices
+        script = '''
+import re
+
+try:
+    matches = re.finditer("''' + pattern + '''", "''' + str + '''")
+    indices = [match.start() for match in matches]
+    print(indices)
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_findallindex.py", script)
+        result = `python3 ./regex_findallindex.py`
+        `rm ./regex_findallindex.py`
+        return result
+    }
+
+    static fn FindStringSubmatch(pattern, str) {
+        # Use Python to find the first match and return all captured groups
+        script = '''
+import re
+
+try:
+    match = re.search("''' + pattern + '''", "''' + str + '''")
+    if match:
+        print(match.groups())
+    else:
+        print(None)
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./regex_findstringsubmatch.py", script)
+        result = `python3 ./regex_findstringsubmatch.py`
+        `rm ./regex_findstringsubmatch.py`
+        return result
+    }
+
+    static fn QuoteMeta(str) {
+        # Use Python to quote all metacharacters
+        script = '''
+import re
+
+print(re.escape("''' + str + '''"))
+'''
+        fs.WriteToFile("./regex_quotemeta.py", script)
+        result = `python3 ./regex_quotemeta.py`
+        `rm ./regex_quotemeta.py`
+        return result
+    }
+
+    static fn IsValid(pattern) {
+        # Use Python to check if a regex pattern is valid
+        script = '''
+import re
+
+try:
+    re.compile("''' + pattern + '''")
+    print("True")
+except re.error:
+    print("False")
+'''
+        fs.WriteToFile("./regex_isvalid.py", script)
+        result = `python3 ./regex_isvalid.py`
+        `rm ./regex_isvalid.py`
+        return result
+    }
+}

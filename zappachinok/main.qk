@@ -1,0 +1,19 @@
+########################################
+## THE MAIN EXEC FILE FOR ZAPPACHINOK ##
+########################################
+
+## Author: hmZa-Sfyn
+## ~MIT
+## ~QuackoSuperSet
+
+import libs.std.io
+
+import libs.std.env
+
+
+version = 2.5
+
+println("Zappachinok: "+version)
+
+
+io.Console.Fmt("hi my name is $1",["hamza"])

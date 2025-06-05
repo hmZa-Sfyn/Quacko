@@ -2,13 +2,36 @@
 // Version: 1.5
 // Description: A tool to manage Quacko language installations, versions, and configurations.
 
+fn readln(str) {
+    do {
+        str_ = str
+       _out = `python3 readln.py $str_`
+    }
+
+    file = newFile("./data.dat", "r")
+	if (file == nil) {
+		println("opening ", filename, "for reading failed, error:", file.message())
+		return false
+	}
+    _Dat = Readlines(file)
+
+    if (_Dat == "??empty") {
+        return ""
+    }
+    else {
+        return _Dat
+    }
+
+	defer file.close()
+}
+
 // Global version variable
 VERSION = "1.5"
 
 // Main function: Entry point for the language manager
 fn Main(args=[]) {
     // Check if any arguments are provided
-    if len(array(args)) >= 1 {
+    if len(array(args)) > 1 {
         // Parse and execute commands based on arguments
         ParseAndExec(args)
     }
