@@ -1,7 +1,7 @@
 ## JSON Library
 
-import libs.std.io
-import libs.std.fs
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
 
 class JSON {
     static fn Encode(data) {

@@ -1,7 +1,7 @@
 ## HTTP Library
 
-import libs.std.io
-import libs.std.fs
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
 
 class HTTP {
     static fn Get(url) {

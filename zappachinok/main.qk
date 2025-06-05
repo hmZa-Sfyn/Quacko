@@ -1,19 +1,12 @@
-########################################
-## THE MAIN EXEC FILE FOR ZAPPACHINOK ##
-########################################
+##
+##
+##
+##
 
-## Author: hmZa-Sfyn
-## ~MIT
-## ~QuackoSuperSet
-
-import libs.std.io
-
-import libs.std.env
+import libs.zappachinok.libs.std.fs
+import libs.zappachinok.libs.std.input 
 
 
-version = 2.5
+#println(fs.ReadFile("./../../main.qk"))
 
-println("Zappachinok: "+version)
-
-
-io.Console.Fmt("hi my name is $1",["hamza"])
+#println(input.Console.Input("ji >>> "))

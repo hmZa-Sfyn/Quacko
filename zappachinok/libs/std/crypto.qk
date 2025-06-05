@@ -1,7 +1,7 @@
 ## Crypto Library
 
-import libs.std.io
-import libs.std.fs
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
 
 class Crypto {
     static fn MD5(str) {

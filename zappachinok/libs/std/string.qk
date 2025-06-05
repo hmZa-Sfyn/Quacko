@@ -1,7 +1,7 @@
 ## String Library
 
-import libs.std.io
-import libs.std.fs
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
 
 class String {
     static fn Length(str) {

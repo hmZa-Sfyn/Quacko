@@ -1,7 +1,7 @@
 ## Database Library
 
-import libs.std.io
-import libs.std.fs
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
 
 class Database {
     static fn Execute(query) {

@@ -3,9 +3,7 @@
 ##
 ##
 
-import libs.std.datetime
-
-#import libs.std.colorsX
+import libs.zappachinok.libs.std.datetime
 
 class Console {
 
@@ -97,3 +95,4 @@ class Console (Fmt) {
         return result
     }
 }
+
