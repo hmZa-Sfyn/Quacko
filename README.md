@@ -931,28 +931,11 @@ using (infile = newFile("./file.demo", "r")) {
 }
 ```
 
-## Contributing
-
-Contributing is very welcomed. If you make any changes to the language, please let me know,
-so i could put you in the `Credits` sections.
-
-## Credits
-
-* mayoms:
-    This project is based on mayoms's [monkey](https://github.com/mayoms/monkey) interpreter.
-
-* ahmetb：
-    Linq module is base on ahmetb's [linq](https://github.com/ahmetb/go-linq)
-
-* shopspring：
-   Decimal module is based on shopspring's [decimal](https://github.com/shopspring/decimal)
-
-* gorilla:
-   Service module is based on gorilla's [mux](https://github.com/gorilla/mux)
-
 ## Installation
 
 Just download the repository and run `./run.sh`
+
+Or if you are on windows then just run `.\configure.ps1` in the `windows_bin` dir.
 
 ## License
 
