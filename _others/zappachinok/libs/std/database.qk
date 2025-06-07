@@ -1,0 +1,52 @@
+## Database Library
+
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
+
+class Database {
+    static fn Execute(query) {
+        # Use Python to execute a database query
+        script = '''
+import sqlite3
+
+try:
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("''' + query + '''")
+    conn.commit()
+    print("Query executed successfully")
+except Exception as e:
+    print(f"Error: {e}")
+finally:
+    if conn:
+        conn.close()
+'''
+        fs.WriteToFile("./database_execute.py", script)
+        result = `python3 ./database_execute.py`
+        `rm ./database_execute.py`
+        return result
+    }
+
+    static fn Query(query) {
+        # Use Python to execute a database query and return the results
+        script = '''
+import sqlite3
+
+try:
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+    cursor.execute("''' + query + '''")
+    results = cursor.fetchall()
+    print(results)
+except Exception as e:
+    print(f"Error: {e}")
+finally:
+    if conn:
+        conn.close()
+'''
+        fs.WriteToFile("./database_query.py", script)
+        result = `python3 ./database_query.py`
+        `rm ./database_query.py`
+        return result
+    }
+}

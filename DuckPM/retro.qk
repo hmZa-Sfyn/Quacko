@@ -1,0 +1,188 @@
+const base_url = "https://quacko-retro-hub-api.vercel.app/"
+
+fn handle_response(resp) {
+    if resp.status_code == 200 {
+        println("✅ Success:\n" + string(resp.text))
+    } else {
+        println("❌ Error (" + string(resp.status_code) + "):\n" + string(resp.text))
+    }
+}
+
+fn register(email, password) {
+    let body = json.stringify({ email: email, password: password })
+    let headers = { "Content-Type": "application/json" }
+    let resp = http.post(base_url + "/register", body, headers)
+    handle_response(resp)
+}
+
+fn login(email, password) {
+    let body = json.stringify({ email: email, password: password })
+    let headers = { "Content-Type": "application/json" }
+    let resp = http.post(base_url + "/login", body, headers)
+    handle_response(resp)
+}
+
+fn list_repos() {
+    handle_response(http.get(base_url + "/list-repos"))
+}
+
+fn get_repo(id) {
+    handle_response(http.get(base_url + "/get-repo/" + id))
+}
+
+fn create_repo(username, password, name, description, github_link, license, tags, version) {
+    let body = json.stringify({
+        username: username,
+        password: password,
+        name: name,
+        description: description,
+        github_repo_link: github_link,
+        license: license,
+        tags: tags,
+        version: version
+    })
+    let headers = { "Content-Type": "application/json" }
+    handle_response(http.post(base_url + "/create-repo", body, headers))
+}
+
+fn delete_repo(username, password, id) {
+    let body = json.stringify({
+        username: username,
+        password: password,
+        id: id
+    })
+    let headers = { "Content-Type": "application/json" }
+    handle_response(http.post(base_url + "/delete-repo", body, headers))
+}
+
+fn add_library(username, password, library_id) {
+    let body = json.stringify({
+        username: username,
+        password: password,
+        library_id: library_id
+    })
+    let headers = { "Content-Type": "application/json" }
+    handle_response(http.post(base_url + "/add-library", body, headers))
+}
+
+fn remove_library(user_id, library_id) {
+    let body = json.stringify({
+        user_id: user_id,
+        library_id: library_id
+    })
+    let headers = { "Content-Type": "application/json" }
+    handle_response(http.post(base_url + "/remove-library", body, headers))
+}
+
+fn explore_libraries(page, limit, filter) {
+    let url = base_url + "/explore-libraries?page=" + string(page) + "&limit=" + string(limit) + "&filter=" + filter
+    handle_response(http.get(url))
+}
+
+fn find_library(query) {
+    handle_response(http.get(base_url + "/find-library/" + query))
+}
+
+fn generate_lib(username, password, description, name, github_link, version, license, tags) {
+    let body = json.stringify({
+        username: username,
+        password: password,
+        description: description,
+        name: name,
+        github_repo_link: github_link,
+        version: version,
+        license: license,
+        tags: tags
+    })
+    let headers = { "Content-Type": "application/json" }
+    handle_response(http.post(base_url + "/generate-lib", body, headers))
+}
+
+fn main() {
+    let args = os.args()[1:]
+    if len(args) == 0 {
+        println("🐤 Quacko CLI - Manage Quacko Language Repos")
+        println("Usage:\n  register, login, list-repos, get-repo, create-repo, delete-repo, add-library, remove-library, explore-libraries, find-library, generate-lib")
+        return
+    }
+
+    let cmd = args[0]
+    case cmd in {
+        "register" {
+            if len(args) < 3 {
+                println("Usage: register <email> <password>")
+                return
+            }
+            register(args[1], args[2])
+        }
+        "login" {
+            if len(args) < 3 {
+                println("Usage: login <email> <password>")
+                return
+            }
+            login(args[1], args[2])
+        }
+        "list-repos" {
+            list_repos()
+        }
+        "get-repo" {
+            if len(args) < 2 {
+                println("Usage: get-repo <id>")
+                return
+            }
+            get_repo(args[1])
+        }
+        "create-repo" {
+            if len(args) < 9 {
+                println("Usage: create-repo <username> <password> <name> <description> <github-link> <license> <tags> <version>")
+                return
+            }
+            create_repo(args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8])
+        }
+        "delete-repo" {
+            if len(args) < 4 {
+                println("Usage: delete-repo <username> <password> <id>")
+                return
+            }
+            delete_repo(args[1], args[2], args[3])
+        }
+        "add-library" {
+            if len(args) < 4 {
+                println("Usage: add-library <username> <password> <library-id>")
+                return
+            }
+            add_library(args[1], args[2], args[3])
+        }
+        "remove-library" {
+            if len(args) < 3 {
+                println("Usage: remove-library <user-id> <library-id>")
+                return
+            }
+            remove_library(args[1], args[2])
+        }
+        "explore-libraries" {
+            let page = len(args) > 1 ? int(args[1]) : 1
+            let limit = len(args) > 2 ? int(args[2]) : 10
+            let filter = len(args) > 3 ? args[3] : ""
+            explore_libraries(page, limit, filter)
+        }
+        "find-library" {
+            if len(args) < 2 {
+                println("Usage: find-library <query>")
+                return
+            }
+            find_library(args[1])
+        }
+        "generate-lib" {
+            if len(args) < 8 {
+                println("Usage: generate-lib <username> <password> <description> <name> <github-link> <version> <license> [tags]")
+                return
+            }
+            let tags = len(args) > 8 ? args[8] : ""
+            generate_lib(args[1], args[2], args[3], args[4], args[5], args[6], args[7], tags)
+        }
+        else {
+            println("❗ Unknown command: " + cmd)
+        }
+    }
+}

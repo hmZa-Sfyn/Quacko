@@ -1,0 +1,182 @@
+## String Library
+
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
+
+class String {
+    static fn Length(str) {
+        # Use Python to get the length of a string
+        script = '''
+print(len("''' + str + '''"))
+'''
+        fs.WriteToFile("./string_length.py", script)
+        result = `python3 ./string_length.py`
+        `rm ./string_length.py`
+        return result
+    }
+
+    static fn ToUpper(str) {
+        # Use Python to convert a string to uppercase
+        script = '''
+print("''' + str + '''".upper())
+'''
+        fs.WriteToFile("./string_upper.py", script)
+        result = `python3 ./string_upper.py`
+        `rm ./string_upper.py`
+        return result
+    }
+
+    static fn ToLower(str) {
+        # Use Python to convert a string to lowercase
+        script = '''
+print("''' + str + '''".lower())
+'''
+        fs.WriteToFile("./string_lower.py", script)
+        result = `python3 ./string_lower.py`
+        `rm ./string_lower.py`
+        return result
+    }
+
+    static fn Replace(str, old, new) {
+        # Use Python to replace a substring in a string
+        script = '''
+print("''' + str + '''".replace("''' + old + '''", "''' + new + '''"))
+'''
+        fs.WriteToFile("./string_replace.py", script)
+        result = `python3 ./string_replace.py`
+        `rm ./string_replace.py`
+        return result
+    }
+
+    static fn Split(str, delimiter) {
+        # Use Python to split a string into a list of substrings
+        script = '''
+print("''' + str + '''".split("''' + delimiter + '''"))
+'''
+        fs.WriteToFile("./string_split.py", script)
+        result = `python3 ./string_split.py`
+        `rm ./string_split.py`
+        return result
+    }
+
+    static fn Join(list, separator) {
+        # Use Python to join a list of strings into a single string
+        script = '''
+print("''' + separator + '''".join(list))
+'''
+        fs.WriteToFile("./string_join.py", script)
+        result = `python3 ./string_join.py`
+        `rm ./string_join.py`
+        return result
+    }
+
+    static fn Trim(str) {
+        # Use Python to trim whitespace from the beginning and end of a string
+        script = '''
+print("''' + str + '''".strip())
+'''
+        fs.WriteToFile("./string_trim.py", script)
+        result = `python3 ./string_trim.py`
+        `rm ./string_trim.py`
+        return result
+    }
+
+    static fn StartsWith(str, prefix) {
+        # Use Python to check if a string starts with a prefix
+        script = '''
+print("''' + str + '''".startswith("''' + prefix + '''"))
+'''
+        fs.WriteToFile("./string_starts_with.py", script)
+        result = `python3 ./string_starts_with.py`
+        `rm ./string_starts_with.py`
+        return result
+    }
+
+    static fn EndsWith(str, suffix) {
+        # Use Python to check if a string ends with a suffix
+        script = '''
+print("''' + str + '''".endswith("''' + suffix + '''"))
+'''
+        fs.WriteToFile("./string_ends_with.py", script)
+        result = `python3 ./string_ends_with.py`
+        `rm ./string_ends_with.py`
+        return result
+    }
+
+    static fn IndexOf(str, substring) {
+        # Use Python to find the index of a substring in a string
+        script = '''
+print("''' + str + '''".find("''' + substring + '''"))
+'''
+        fs.WriteToFile("./string_index_of.py", script)
+        result = `python3 ./string_index_of.py`
+        `rm ./string_index_of.py`
+        return result
+    }
+
+    static fn LastIndexOf(str, substring) {
+        # Use Python to find the last index of a substring in a string
+        script = '''
+print("''' + str + '''".rfind("''' + substring + '''"))
+'''
+        fs.WriteToFile("./string_last_index_of.py", script)
+        result = `python3 ./string_last_index_of.py`
+        `rm ./string_last_index_of.py`
+        return result
+    }
+
+    static fn Contains(str, substring) {
+        # Use Python to check if a string contains a substring
+        script = '''
+print("''' + substring + '''" in "''' + str + '''")
+'''
+        fs.WriteToFile("./string_contains.py", script)
+        result = `python3 ./string_contains.py`
+        `rm ./string_contains.py`
+        return result
+    }
+
+    static fn IsEmpty(str) {
+        # Use Python to check if a string is empty
+        script = '''
+print(len("''' + str + '''") == 0)
+'''
+        fs.WriteToFile("./string_is_empty.py", script)
+        result = `python3 ./string_is_empty.py`
+        `rm ./string_is_empty.py`
+        return result
+    }
+
+    static fn ToCharArray(str) {
+        # Use Python to convert a string to a list of characters
+        script = '''
+print(list("''' + str + '''"))
+'''
+        fs.WriteToFile("./string_to_char_array.py", script)
+        result = `python3 ./string_to_char_array.py`
+        `rm ./string_to_char_array.py`
+        return result
+    }
+
+    static fn FromCharArray(char_array) {
+        # Use Python to convert a list of characters to a string
+        script = '''
+print("".join(char_array))
+'''
+        fs.WriteToFile("./string_from_char_array.py", script)
+        result = `python3 ./string_from_char_array.py`
+        `rm ./string_from_char_array.py`
+        return result
+    }
+
+    static fn Substring(str, start, length) {
+        # Use Python to extract a substring from a string
+        script = '''
+print("''' + str + '''"[start:start+length])
+'''
+        fs.WriteToFile("./string_substring.py", script)
+        result = `python3 ./string_substring.py`
+        `rm ./string_substring.py`
+        return result
+    }
+}

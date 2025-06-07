@@ -1,0 +1,242 @@
+## Math Library
+
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
+
+class Math {
+    static fn Sqrt(num) {
+        # Use Python to calculate the square root of a number
+        script = '''
+import math
+
+try:
+    print(math.sqrt(''' + num + '''))
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./math_sqrt.py", script)
+        result = `python3 ./math_sqrt.py`
+        `rm ./math_sqrt.py`
+        return result
+    }
+
+    static fn Pow(base, exponent) {
+        # Use Python to calculate the power of a number
+        script = '''
+import math
+
+try:
+    print(math.pow(''' + base + ''', ''' + exponent + '''))
+except Exception as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./math_pow.py", script)
+        result = `python3 ./math_pow.py`
+        `rm ./math_pow.py`
+        return result
+    }
+
+    static fn Abs(num) {
+        # Use Python to calculate the absolute value of a number
+        script = '''
+print(abs(''' + num + '''))
+'''
+        fs.WriteToFile("./math_abs.py", script)
+        result = `python3 ./math_abs.py`
+        `rm ./math_abs.py`
+        return result
+    }
+
+    static fn Sin(num) {
+        # Use Python to calculate the sine of a number
+        script = '''
+import math
+
+print(math.sin(''' + num + '''))
+'''
+        fs.WriteToFile("./math_sin.py", script)
+        result = `python3 ./math_sin.py`
+        `rm ./math_sin.py`
+        return result
+    }
+
+    static fn Cos(num) {
+        # Use Python to calculate the cosine of a number
+        script = '''
+import math
+
+print(math.cos(''' + num + '''))
+'''
+        fs.WriteToFile("./math_cos.py", script)
+        result = `python3 ./math_cos.py`
+        `rm ./math_cos.py`
+        return result
+    }
+
+    static fn Tan(num) {
+        # Use Python to calculate the tangent of a number
+        script = '''
+import math
+
+print(math.tan(''' + num + '''))
+'''
+        fs.WriteToFile("./math_tan.py", script)
+        result = `python3 ./math_tan.py`
+        `rm ./math_tan.py`
+        return result
+    }
+
+    static fn Asin(num) {
+        # Use Python to calculate the arcsine of a number
+        script = '''
+import math
+
+print(math.asin(''' + num + '''))
+'''
+        fs.WriteToFile("./math_asin.py", script)
+        result = `python3 ./math_asin.py`
+        `rm ./math_asin.py`
+        return result
+    }
+
+    static fn Acos(num) {
+        # Use Python to calculate the arccosine of a number
+        script = '''
+import math
+
+print(math.acos(''' + num + '''))
+'''
+        fs.WriteToFile("./math_acos.py", script)
+        result = `python3 ./math_acos.py`
+        `rm ./math_acos.py`
+        return result
+    }
+
+    static fn Atan(num) {
+        # Use Python to calculate the arctangent of a number
+        script = '''
+import math
+
+print(math.atan(''' + num + '''))
+'''
+        fs.WriteToFile("./math_atan.py", script)
+        result = `python3 ./math_atan.py`
+        `rm ./math_atan.py`
+        return result
+    }
+
+    static fn Log(num) {
+        # Use Python to calculate the natural logarithm of a number
+        script = '''
+import math
+
+print(math.log(''' + num + '''))
+'''
+        fs.WriteToFile("./math_log.py", script)
+        result = `python3 ./math_log.py`
+        `rm ./math_log.py`
+        return result
+    }
+
+    static fn Log10(num) {
+        # Use Python to calculate the base-10 logarithm of a number
+        script = '''
+import math
+
+print(math.log10(''' + num + '''))
+'''
+        fs.WriteToFile("./math_log10.py", script)
+        result = `python3 ./math_log10.py`
+        `rm ./math_log10.py`
+        return result
+    }
+
+    static fn Ceil(num) {
+        # Use Python to round a number up to the nearest integer
+        script = '''
+import math
+
+print(math.ceil(''' + num + '''))
+'''
+        fs.WriteToFile("./math_ceil.py", script)
+        result = `python3 ./math_ceil.py`
+        `rm ./math_ceil.py`
+        return result
+    }
+
+    static fn Floor(num) {
+        # Use Python to round a number down to the nearest integer
+        script = '''
+import math
+
+print(math.floor(''' + num + '''))
+'''
+        fs.WriteToFile("./math_floor.py", script)
+        result = `python3 ./math_floor.py`
+        `rm ./math_floor.py`
+        return result
+    }
+
+    static fn Round(num) {
+        # Use Python to round a number to the nearest integer
+        script = '''
+print(round(''' + num + '''))
+'''
+        fs.WriteToFile("./math_round.py", script)
+        result = `python3 ./math_round.py`
+        `rm ./math_round.py`
+        return result
+    }
+
+    static fn Fabs(num) {
+        # Use Python to calculate the absolute value of a float number
+        script = '''
+import math
+
+print(math.fabs(''' + num + '''))
+'''
+        fs.WriteToFile("./math_fabs.py", script)
+        result = `python3 ./math_fabs.py`
+        `rm ./math_fabs.py`
+        return result
+    }
+
+    static fn Exp(num) {
+         # Use Python to calculate the exponential of a number
+        script = '''
+import math
+
+print(math.exp(''' + num + '''))
+'''
+        fs.WriteToFile("./math_exp.py", script)
+        result = `python3 ./math_exp.py`
+        `rm ./math_exp.py`
+        return result
+    }
+
+    static fn Degrees(num) {
+         # Use Python to convert radians to degrees
+        script = '''
+import math
+
+print(math.degrees(''' + num + '''))
+'''
+        fs.WriteToFile("./math_degrees.py", script)
+        result = `python3 ./math_degrees.py`
+        `rm ./math_degrees.py`
+        return result
+    }
+
+    static fn Radians(num) {
+         # Use Python to convert degrees to radians
+        script = '''
+import math
+
+print(math.radians(''' + num + '''))
+'''
+        fs.WriteToFile("./math_radians.py", script)
+        result = `python3 ./math_radians.py`
+        `rm ./math_radians.py`
+        return result
+    }
+}

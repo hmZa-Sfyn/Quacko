@@ -1,0 +1,270 @@
+## Time Library
+
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
+
+class Time {
+    static fn Now() {
+        # Use Python to get the current time
+        script = '''
+import datetime
+
+print(datetime.datetime.now())
+'''
+        fs.WriteToFile("./time_now.py", script)
+        result = `python3 ./time_now.py`
+        `rm ./time_now.py`
+        return result
+    }
+
+    static fn Sleep(seconds) {
+        # Use Python to sleep for a specified number of seconds
+        script = '''
+import time
+
+time.sleep(''' + seconds + ''')
+print("Slept for " + str(''' + seconds + ''') + " seconds")
+'''
+        fs.WriteToFile("./time_sleep.py", script)
+        result = `python3 ./time_sleep.py`
+        `rm ./time_sleep.py`
+        return result
+    }
+
+    static fn Format(time, format_string) {
+        # Use Python to format a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.strftime("''' + format_string + '''"))
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_format.py", script)
+        result = `python3 ./time_format.py`
+        `rm ./time_format.py`
+        return result
+    }
+
+    static fn Parse(time_string, format_string) {
+        # Use Python to parse a time string into a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.strptime("''' + time_string + '''", "''' + format_string + '''")
+    print(time_obj)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_parse.py", script)
+        result = `python3 ./time_parse.py`
+        `rm ./time_parse.py`
+        return result
+    }
+
+    static fn Diff(time1, time2) {
+        # Use Python to calculate the difference between two time objects
+        script = '''
+import datetime
+
+try:
+    time_obj1 = datetime.datetime.fromisoformat("''' + time1 + '''")
+    time_obj2 = datetime.datetime.fromisoformat("''' + time2 + '''")
+    print(time_obj1 - time_obj2)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_diff.py", script)
+        result = `python3 ./time_diff.py`
+        `rm ./time_diff.py`
+        return result
+    }
+
+    static fn Add(time, delta) {
+        # Use Python to add a time delta to a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    delta_obj = datetime.timedelta(seconds=''' + delta + ''')
+    print(time_obj + delta_obj)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_add.py", script)
+        result = `python3 ./time_add.py`
+        `rm ./time_add.py`
+        return result
+    }
+
+    static fn Subtract(time, delta) {
+        # Use Python to subtract a time delta from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    delta_obj = datetime.timedelta(seconds=''' + delta + ''')
+    print(time_obj - delta_obj)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_subtract.py", script)
+        result = `python3 ./time_subtract.py`
+        `rm ./time_subtract.py`
+        return result
+    }
+
+    static fn Year(time) {
+        # Use Python to get the year from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.year)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_year.py", script)
+        result = `python3 ./time_year.py`
+        `rm ./time_year.py`
+        return result
+    }
+
+    static fn Month(time) {
+        # Use Python to get the month from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.month)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_month.py", script)
+        result = `python3 ./time_month.py`
+        `rm ./time_month.py`
+        return result
+    }
+
+    static fn Day(time) {
+        # Use Python to get the day from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.day)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_day.py", script)
+        result = `python3 ./time_day.py`
+        `rm ./time_day.py`
+        return result
+    }
+
+    static fn Hour(time) {
+        # Use Python to get the hour from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.hour)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_hour.py", script)
+        result = `python3 ./time_hour.py`
+        `rm ./time_hour.py`
+        return result
+    }
+
+    static fn Minute(time) {
+        # Use Python to get the minute from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.minute)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_minute.py", script)
+        result = `python3 ./time_minute.py`
+        `rm ./time_minute.py`
+        return result
+    }
+
+    static fn Second(time) {
+        # Use Python to get the second from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.second)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_second.py", script)
+        result = `python3 ./time_second.py`
+        `rm ./time_second.py`
+        return result
+    }
+
+    static fn IsLeapYear(year) {
+        # Use Python to check if a year is a leap year
+        script = '''
+import calendar
+
+print(calendar.isleap(''' + year + '''))
+'''
+        fs.WriteToFile("./time_is_leap_year.py", script)
+        result = `python3 ./time_is_leap_year.py`
+        `rm ./time_is_leap_year.py`
+        return result
+    }
+
+    static fn Weekday(time) {
+        # Use Python to get the weekday from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.weekday())
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_weekday.py", script)
+        result = `python3 ./time_weekday.py`
+        `rm ./time_weekday.py`
+        return result
+    }
+
+    static fn Timezone(time) {
+        # Use Python to get the timezone from a time object
+        script = '''
+import datetime
+
+try:
+    time_obj = datetime.datetime.fromisoformat("''' + time + '''")
+    print(time_obj.tzinfo)
+except ValueError as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./time_timezone.py", script)
+        result = `python3 ./time_timezone.py`
+        `rm ./time_timezone.py`
+        return result
+    }
+}

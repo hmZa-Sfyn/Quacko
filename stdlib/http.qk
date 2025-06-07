@@ -1,0 +1,297 @@
+## HTTP Library
+
+import libs.zappachinok.libs.std.io
+import libs.zappachinok.libs.std.fs
+
+class HTTP {
+    static fn Get(url) {
+        # Use Python to make the HTTP GET request
+        script = '''
+import requests
+
+try:
+    response = requests.get("''' + url + '''")
+    response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_get.py", script)
+        result = `python3 ./http_get.py`
+        `rm ./http_get.py`
+        return result
+    }
+
+    static fn Post(url, data) {
+        # Use Python to make the HTTP POST request
+        script = '''
+import requests
+
+try:
+    response = requests.post("''' + url + '''", data=''' + data + ''')
+    response.raise_for_status()  # Raise HTTPError for bad responses (4xx or 5xx)
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_post.py", script)
+        result = `python3 ./http_post.py`
+        `rm ./http_post.py`
+        return result
+    }
+
+    static fn SetHeader(url, header, value) {
+        # Use Python to set a header in the HTTP request
+        script = '''
+import requests
+
+try:
+    headers = {"''' + header + '''": "''' + value + '''"}
+    response = requests.get("''' + url + '''", headers=headers)
+    response.raise_for_status()
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_set_header.py", script)
+        result = `python3 ./http_set_header.py`
+        `rm ./http_set_header.py`
+        return result
+    }
+
+    static fn SetTimeout(url, timeout) {
+        # Use Python to set a timeout for the HTTP request
+        script = '''
+import requests
+
+try:
+    response = requests.get("''' + url + '''", timeout=''' + timeout + ''')
+    response.raise_for_status()
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_set_timeout.py", script)
+        result = `python3 ./http_set_timeout.py`
+        `rm ./http_set_timeout.py`
+        return result
+    }
+
+    static fn HandleRedirects(url, allow_redirects) {
+        # Use Python to handle redirects in the HTTP request
+        script = '''
+import requests
+
+try:
+    response = requests.get("''' + url + '''", allow_redirects=''' + allow_redirects + ''')
+    response.raise_for_status()
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_handle_redirects.py", script)
+        result = `python3 ./http_handle_redirects.py`
+        `rm ./http_handle_redirects.py`
+        return result
+    }
+
+    static fn GetStatusCode(url) {
+        # Use Python to get the status code of the HTTP response
+        script = '''
+import requests
+
+try:
+    response = requests.get("''' + url + '''")
+    print(response.status_code)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_get_status_code.py", script)
+        result = `python3 ./http_get_status_code.py`
+        `rm ./http_get_status_code.py`
+        return result
+    }
+
+    static fn GetHeaders(url) {
+         # Use Python to get the headers of the HTTP response
+        script = '''
+import requests
+
+try:
+    response = requests.get("''' + url + '''")
+    print(response.headers)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_get_headers.py", script)
+        result = `python3 ./http_get_headers.py`
+        `rm ./http_get_headers.py`
+        return result
+    }
+
+    static fn PostJson(url, data) {
+        # Use Python to make the HTTP POST request with JSON data
+        script = '''
+import requests
+import json
+
+try:
+    headers = {'Content-type': 'application/json'}
+    response = requests.post("''' + url + '''", data=json.dumps(''' + data + '''), headers=headers)
+    response.raise_for_status()
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_post_json.py", script)
+        result = `python3 ./http_post_json.py`
+        `rm ./http_post_json.py`
+        return result
+    }
+
+    static fn Put(url, data) {
+        # Use Python to make the HTTP PUT request
+        script = '''
+import requests
+
+try:
+    response = requests.put("''' + url + '''", data=''' + data + ''')
+    response.raise_for_status()
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_put.py", script)
+        result = `python3 ./http_put.py`
+        `rm ./http_put.py`
+        return result
+    }
+
+    static fn Delete(url) {
+        # Use Python to make the HTTP DELETE request
+        script = '''
+import requests
+
+try:
+    response = requests.delete("''' + url + '''")
+    response.raise_for_status()
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_delete.py", script)
+        result = `python3 ./http_delete.py`
+        `rm ./http_delete.py`
+        return result
+    }
+
+    static fn Patch(url, data) {
+        # Use Python to make the HTTP PATCH request
+        script = '''
+import requests
+
+try:
+    response = requests.patch("''' + url + '''", data=''' + data + ''')
+    response.raise_for_status()
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_patch.py", script)
+        result = `python3 ./http_patch.py`
+        `rm ./http_patch.py`
+        return result
+    }
+
+    static fn Head(url) {
+        # Use Python to make the HTTP HEAD request
+        script = '''
+import requests
+
+try:
+    response = requests.head("''' + url + '''")
+    response.raise_for_status()
+    print(response.headers)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_head.py", script)
+        result = `python3 ./http_head.py`
+        `rm ./http_head.py`
+        return result
+    }
+
+    static fn Options(url) {
+        # Use Python to make the HTTP OPTIONS request
+        script = '''
+import requests
+
+try:
+    response = requests.options("''' + url + '''")
+    response.raise_for_status()
+    print(response.headers)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_options.py", script)
+        result = `python3 ./http_options.py`
+        `rm ./http_options.py`
+        return result
+    }
+
+    static fn GetCookies(url) {
+        # Use Python to get the cookies from the HTTP response
+        script = '''
+import requests
+
+try:
+    response = requests.get("''' + url + '''")
+    print(response.cookies.get_dict())
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_get_cookies.py", script)
+        result = `python3 ./http_get_cookies.py`
+        `rm ./http_get_cookies.py`
+        return result
+    }
+
+    static fn SetCookies(url, cookies) {
+        # Use Python to set cookies for the HTTP request
+        script = '''
+import requests
+
+try:
+    response = requests.get("''' + url + '''", cookies=''' + cookies + ''')
+    response.raise_for_status()
+    print(response.text)
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_set_cookies.py", script)
+        result = `python3 ./http_set_cookies.py`
+        `rm ./http_set_cookies.py`
+        return result
+    }
+
+    static fn DownloadFile(url, filepath) {
+        # Use Python to download a file from the HTTP response
+        script = '''
+import requests
+
+try:
+    response = requests.get("''' + url + '''", stream=True)
+    response.raise_for_status()
+    with open("''' + filepath + '''", 'wb') as f:
+        for chunk in response.iter_content(chunk_size=8192):
+            f.write(chunk)
+    print("File downloaded successfully")
+except requests.exceptions.RequestException as e:
+    print(f"Error: {e}")
+'''
+        fs.WriteToFile("./http_download_file.py", script)
+        result = `python3 ./http_download_file.py`
+        `rm ./http_download_file.py`
+        return result
+    }
+}
