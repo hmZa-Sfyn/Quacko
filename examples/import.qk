@@ -1,5 +1,9 @@
-//import "examples/sub_package/calc"
+//import "./examples/sub_package/calc"
 import examples.sub_package.calc
+
+import __.__.main # import main at: "./../../main.qk"
+
+import libs.zappachinok.libs.io # import zappachinok's io lib at "C:/Program Files/Quacko/zappachinok/libs/io.qk"
 
 a, b = 10, 2
 printf("10 + 2 = %d\n", calc.Add(a, b))

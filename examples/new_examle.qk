@@ -1,0 +1,17 @@
+// Hello World in Quacko
+class Program {
+    static fn main?() {
+        println("Hello, World!")
+        return 0.69;
+    }
+}
+
+fn float$ToActualMeaning() {
+   _Return = ""
+   if (self >= 1) { _Return = "Shut the fuck up!"}
+   elif (self < 1) { _Return = "All OK Dawg!"}
+   else { _Return = "WTF??"}
+   return ( _Return );
+}
+
+println(Program.main?().ToActualMeaning())

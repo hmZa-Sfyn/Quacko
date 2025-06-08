@@ -1,22 +1,22 @@
 ################################################################
-# Same as httpserver2.qk file, but use fmt.fprintf function
+# Same as httpserver2.qk file, but use gfmt.fprintf function
 ################################################################
 let todos = []
 let showToDo = fn(writer, request) {
-	fmt.fprintf(writer, "<html><head><title>ToDo List</title></head><body><h1>ToDo List</h1><ul>\n")
+	gfmt.fprintf(writer, "<html><head><title>ToDo List</title></head><body><h1>ToDo List</h1><ul>\n")
 	for todo in todos {
-	    fmt.fprintf(writer, "<li> %s </li>\n", todo)
+	    gfmt.fprintf(writer, "<li> %s </li>\n", todo)
 	}
-	fmt.fprintf(writer, "</ul>")
+	gfmt.fprintf(writer, "</ul>")
 	
-	fmt.fprintf(writer,"<h2>Add ToDo</h2>")
-	fmt.fprintf(writer,``<form method="post" action="/todos/new">``)
-	fmt.fprintf(writer,``<input type="text" name="todo">``)
-	fmt.fprintf(writer,``<input type="submit" name="Add">``)
-	fmt.fprintf(writer,``</form>``)
+	gfmt.fprintf(writer,"<h2>Add ToDo</h2>")
+	gfmt.fprintf(writer,``<form method="post" action="/todos/new">``)
+	gfmt.fprintf(writer,``<input type="text" name="todo">``)
+	gfmt.fprintf(writer,``<input type="submit" name="Add">``)
+	gfmt.fprintf(writer,``</form>``)
 	
-	fmt.fprintf(writer,"</body>")
-	fmt.fprintf(writer,"</html>")
+	gfmt.fprintf(writer,"</body>")
+	gfmt.fprintf(writer,"</html>")
 }
 
 let addToDo = fn(writer, request) {
