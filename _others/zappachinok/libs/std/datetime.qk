@@ -24,13 +24,10 @@ class Datetime {
         __DateTimeNow = `python3 -c "import datetime; x = datetime.datetime.now(); print(x.strftime('%H:%M:%S'))"`
         return __DateTimeNow
     } 
-}
 
-class Datetime (MeasureUnixDistance) {
     static fn MeasureUnixDistance(from_time,to_time)
     {
-        __DateTimeNow = `python3 -c "print($to_time - $from_time)"`
+        __DateTimeNow = `python3 -c "print($to_time - $from_time) "`
         return __DateTimeNow
     }
 }
-

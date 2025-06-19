@@ -8,14 +8,10 @@ current_loc=$(pwd)
 
 # Install QuackoLang
 echo "alias quackolang='$current_loc/QuackoLang'" >> ~/.bashrc
-#echo "alias quackolang='$current_loc/QuackoLang'" >> ~/.zshrc
+echo "alias quackolang='$current_loc/QuackoLang'" >> ~/.zshrc
 
-# Install DuckPM and LangMang
-echo "alias quacko='quackolang $current_loc/QuackoLanguageManager/LangMang.qk.cs'" >> ~/.bashrc
-#echo "alias quacko='quackolang $current_loc/QuackoLanguageManager/LangMang.qk'" >> ~/.zshrc
-
-echo "alias duckpm='quackolang $current_loc/DuckPM/duckPM.qk.cs'" >> ~/.bashrc
-#echo "alias duckpm='quackolang $current_loc/DuckPM/duckPM.qk'" >> ~/.zshrc
+echo "alias retro='$current_loc/DuckPM/retro/retro'" >> ~/.bashrc
+echo "alias retro='$current_loc/DuckPM/retro/retro'" >> ~/.zshrc
 
 mkdir ~/.quacko_lang_important_do_not_delete
 mkdir ~/.quacko_lang_important_do_not_delete/universal_libs
@@ -26,7 +22,7 @@ source ~/.bashrc
 
 echo "Done setting up your env!"
 echo "Type 'quackolang' to run QuackoLang."
-echo "Type 'quacko --version' to check the version."
+echo "Type 'duckpm --langv' to check the version."
 echo "Happy coding!"
 
 bash
