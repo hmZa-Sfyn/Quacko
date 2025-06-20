@@ -1,5 +1,5 @@
 # configure.ps1
-# Installs quackolang.exe to C:\Program Files\Quacko\bin and adds it to system PATH
+# Installs quackolang.exe and retro.exe to C:\Program Files\Quacko\bin and adds it to system PATH
 
 # Check for administrative privileges
 $isAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
@@ -9,13 +9,23 @@ if (-not $isAdmin) {
 }
 
 # Define paths
-$sourceExe = ".\quackolang.exe"  # Relative to D:\Quacko\windows_bin
+$sourceDir = "."
+$sourceExeQuacko = Join-Path $sourceDir "quackolang.exe"
+$sourceExeRetro = Join-Path $sourceDir "retro.exe"
 $installDir = "C:\Program Files\Quacko\bin"
-$installExe = Join-Path $installDir "quackolang.exe"
+$installExeQuacko = Join-Path $installDir "quackolang.exe"
+$installExeRetro = Join-Path $installDir "retro.exe"
 
-# Check if quackolang.exe exists
-if (-not (Test-Path $sourceExe)) {
-    Write-Error "quackolang.exe not found at $sourceExe. Ensure it exists in the windows_bin directory."
+# Check if source executables exist
+$missingFiles = @()
+if (-not (Test-Path $sourceExeQuacko)) {
+    $missingFiles += $sourceExeQuacko
+}
+if (-not (Test-Path $sourceExeRetro)) {
+    $missingFiles += $sourceExeRetro
+}
+if ($missingFiles.Count -gt 0) {
+    Write-Error "The following files were not found: $($missingFiles -join ', '). Ensure they exist in $sourceDir."
     exit 1
 }
 
@@ -30,15 +40,21 @@ if (-not (Test-Path $installDir)) {
     }
 }
 
-# Copy quackolang.exe to installation directory
+# Copy executables to installation directory
 try {
-    if (Test-Path $installExe) {
-        Write-Warning "Overwriting existing $installExe."
+    if (Test-Path $installExeQuacko) {
+        Write-Warning "Overwriting existing $installExeQuacko."
     }
-    Copy-Item -Path $sourceExe -Destination $installExe -Force
-    Write-Host "Copied quackolang.exe to $installExe"
+    Copy-Item -Path $sourceExeQuacko -Destination $installExeQuacko -Force
+    Write-Host "Copied quackolang.exe to $installExeQuacko"
+
+    if (Test-Path $installExeRetro) {
+        Write-Warning "Overwriting existing $installExeRetro."
+    }
+    Copy-Item -Path $sourceExeRetro -Destination $installExeRetro -Force
+    Write-Host "Copied retro.exe to $installExeRetro"
 } catch {
-    Write-Error "Failed to copy $sourceExe to $installExe. Error: $_"
+    Write-Error "Failed to copy executables to $installDir. Error: $_"
     exit 1
 }
 
@@ -58,9 +74,16 @@ if ($currentPath -notlike "*$installDir*") {
 }
 
 # Verify installation
-if (Test-Path $installExe) {
-    Write-Host "Installation successful. Run 'quackolang' from a new cmd window."
-} else {
-    Write-Error "Installation failed. quackolang.exe not found at $installExe."
+$failedInstalls = @()
+if (-not (Test-Path $installExeQuacko)) {
+    $failedInstalls += "quackolang.exe not found at $installExeQuacko"
+}
+if (-not (Test-Path $installExeRetro)) {
+    $failedInstalls += "retro.exe not found at $installExeRetro"
+}
+if ($failedInstalls.Count -gt 0) {
+    Write-Error "Installation failed: $($failedInstalls -join '; ')"
     exit 1
+} else {
+    Write-Host "Installation successful. Run 'quackolang' or 'retro' from a new cmd window."
 }
