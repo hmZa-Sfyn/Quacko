@@ -152,12 +152,10 @@ func main() {
 }
 
 func isValidLibraryName(name string) bool {
-	// Basic validation: non-empty, no slashes, no special characters
 	return len(name) > 0 && !strings.ContainsAny(name, "/\\:") && !strings.HasPrefix(name, ".")
 }
 
 func isValidVersion(version string) bool {
-	// Basic semantic version check (e.g., 1.0.0)
 	parts := strings.Split(version, ".")
 	if len(parts) != 3 {
 		return false
@@ -234,7 +232,6 @@ func listInstalledLibraries(global bool, blue, red, green func(a ...interface{})
 	fmt.Printf("%s in %s:\n", blue("Installed libraries"), installPath)
 	for _, lib := range libs {
 		if lib.IsDir() {
-			// Try to fetch version from Supabase
 			libName := lib.Name()
 			library, err := fetchLibrary(libName)
 			version := "unknown"
@@ -267,7 +264,7 @@ func installLibrary(libName string, global bool, green, red func(a ...interface{
 
 	// Ensure the install directory exists
 	if err := os.MkdirAll(installPath, 0755); err != nil {
-		fmt.Printf("%s creating directory %s: %v\n", red("Error"), installPath, err)
+		fmt.Printf("%s: Error creating directory %s: %v\n", red("Error"), installPath, err)
 		return
 	}
 
@@ -283,14 +280,53 @@ func installLibrary(libName string, global bool, green, red func(a ...interface{
 		Progress: os.Stdout,
 	})
 	if err != nil {
-		fmt.Printf("%s cloning repository: %v\n", red("Error"), err)
+		fmt.Printf("%s: Error cloning repository: %v\n", red("Error"), err)
 		return
 	}
+
+	// List all .qk files in the installed repository
+	listQKFiles(repoPath, library.Name, green)
 
 	fmt.Printf("%s %s (v%s) to %s\n", green("Successfully installed"), library.Name, library.Version, repoPath)
 
 	// Update download count
 	updateDownloadCount(library.ID, red)
+}
+
+func listQKFiles(repoPath, libName string, green func(a ...interface{}) string) {
+	var qkFiles []string
+	err := filepath.Walk(repoPath, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+		if !info.IsDir() && strings.HasSuffix(strings.ToLower(info.Name()), ".qk") {
+			// Get relative path and convert to dotted notation
+			relPath, err := filepath.Rel(repoPath, path)
+			if err != nil {
+				return err
+			}
+			// Remove .qk extension and replace path separators with dots
+			relPath = strings.TrimSuffix(relPath, ".qk")
+			relPath = strings.ReplaceAll(relPath, string(os.PathSeparator), ".")
+			qkFiles = append(qkFiles, relPath)
+		}
+		return nil
+	})
+
+	if err != nil {
+		fmt.Printf("Error walking repository directory: %v\n", err)
+		return
+	}
+
+	if len(qkFiles) == 0 {
+		fmt.Println("No .qk files found in the repository")
+		return
+	}
+
+	fmt.Printf("%s:\n", green("Available .qk files"))
+	for _, file := range qkFiles {
+		fmt.Printf("libs.%s.%s\n", libName, file)
+	}
 }
 
 func uninstallLibrary(libName string, global bool, green, red func(a ...interface{}) string) {
@@ -306,7 +342,7 @@ func uninstallLibrary(libName string, global bool, green, red func(a ...interfac
 	}
 
 	if err := os.RemoveAll(repoPath); err != nil {
-		fmt.Printf("%s uninstalling library %s: %v\n", red("Error"), libName, err)
+		fmt.Printf("%s: Error uninstalling library %s: %v\n", red("Error"), libName, err)
 		return
 	}
 
@@ -340,14 +376,12 @@ func getLibraryRepoURL(libName string, blue, red func(a ...interface{}) string) 
 }
 
 func pushChanges(version string, green, red, yellow func(a ...interface{}) string) {
-	// Open the current directory as a git repository
 	repo, err := git.PlainOpen(".")
 	if err != nil {
 		fmt.Printf("%s: Failed to open git repository: %v\n", red("Error"), err)
 		return
 	}
 
-	// Check repository status
 	worktree, err := repo.Worktree()
 	if err != nil {
 		fmt.Printf("%s: Failed to get worktree: %v\n", red("Error"), err)
@@ -364,15 +398,12 @@ func pushChanges(version string, green, red, yellow func(a ...interface{}) strin
 		return
 	}
 
-	// Add all changes
 	if _, err := worktree.Add("."); err != nil {
 		fmt.Printf("%s: Failed to add files: %v\n", red("Error"), err)
 		return
 	}
 
-	// Commit changes
-	commitMsg := "retro push!!!"
-	commit, err := worktree.Commit(commitMsg, &git.CommitOptions{
+	commit, err := worktree.Commit("retro push!!!", &git.CommitOptions{
 		Author: &object.Signature{
 			Name:  "Retro User",
 			Email: "retro@quacko.com",
@@ -384,14 +415,12 @@ func pushChanges(version string, green, red, yellow func(a ...interface{}) strin
 		return
 	}
 
-	// Verify main branch exists
 	_, err = repo.Branch("main")
 	if err != nil {
 		fmt.Printf("%s: Main branch does not exist: %v\n", red("Error"), err)
 		return
 	}
 
-	// Push to origin main
 	err = repo.Push(&git.PushOptions{
 		RemoteName: "origin",
 		RefSpecs:   []config.RefSpec{config.RefSpec("refs/heads/main:refs/heads/main")},
@@ -404,7 +433,6 @@ func pushChanges(version string, green, red, yellow func(a ...interface{}) strin
 	fmt.Printf("%s: Changes pushed to origin main (commit %s)\n", green("Success"), commit.String()[:7])
 
 	if version != "" {
-		// Update version in Supabase
 		dir, err := os.Getwd()
 		if err != nil {
 			fmt.Printf("%s: Failed to get current directory: %v\n", red("Error"), err)
