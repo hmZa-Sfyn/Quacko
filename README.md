@@ -13,6 +13,21 @@
 
 # Quacko Programming Language
 
+## Installazation
+
+- After cloning this repo do this:
+### On Windows (10 or higher)
+```sh
+#open a powershell as admin!
+cd ./windows_bin
+./configure.ps1
+```
+
+### On Linux (anything will do)
+```sh
+chmod +x ./run.sh
+./run.sh
+```
 
 ## Summary
 

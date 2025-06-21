@@ -20,8 +20,8 @@ import (
 )
 
 const (
-	supabaseURL    = "https://ugykvbblboigrjdzlfte.supabase.co"
-	supabaseAPIKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVneWt2YmJsYm9pZ3JqZHpsZnRlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5MDk3MjksImV4cCI6MjA1NjQ4NTcyOX0.0mtbFGKycclZr1TjG6NYlOTuniiTWyHoW0DG2IAIOXw"
+	supabaseURL    = "PLACE_URL_HERE"
+	supabaseAPIKey = "PLACE_KEY_HERE"
 )
 
 var (
